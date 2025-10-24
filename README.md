@@ -16,7 +16,18 @@ ATHEX BLACK HAT-Tool-Installer is a Kali Linux hacking tools installer for Termu
                                                                   
 ```
 
+## NEW UPDATE ON FRIDAY OCTOBER 2025. 
+1. NEW TOOLS ADDED.
+2. OLD TOOLS FIXED.
+3. NEW LOGO AND ANIMATION.
+
+## POWER OF ATHEX BLACK HAT.
+
+
+
+
 ATHEX BLACK HAT TOOLKIT is a bash based script which is officially made for Cyber Security Experts In This ToolKIt youll get 500+ tools which is need of every Hacker. This tool works on All os also termux.
+
 
 ## AVAILABLE ON :
 
