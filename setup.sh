@@ -1,8 +1,7 @@
-#!/usr/bin/bash
 clear
 figlet -c "ATHEX BLACK HAT"
-echo " "
-read -p "Do you want to continue installing setup? [y/n] : " answer
+echo "POWER OF ATHEX BLACK HAT "
+read -p "Do you want to continue installing F-SOCIETY? [y/n] : " answer
 case $answer in
 	y)
 		clear
