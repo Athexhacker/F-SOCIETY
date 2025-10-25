@@ -28,14 +28,12 @@ clear
 figlet -c "F-SOCIETY"
 echo -e "\e[1;32mInstalled\e[0m"
 echo -e "\e[1;32m
-       █████╗ ████████╗██╗  ██╗███████╗██╗  ██╗    ██████╗ ██╗      █████╗  ██████╗██╗  ██╗    ██╗  ██╗ █████╗ ████████╗
-      ██╔══██╗╚══██╔══╝██║  ██║██╔════╝╚██╗██╔╝    ██╔══██╗██║     ██╔══██╗██╔════╝██║ ██╔╝    ██║  ██║██╔══██╗╚══██╔══╝
-      ███████║   ██║   ███████║█████╗   ╚███╔╝     ██████╔╝██║     ███████║██║     █████╔╝     ███████║███████║   ██║   
-      ██╔══██║   ██║   ██╔══██║██╔══╝   ██╔██╗     ██╔══██╗██║     ██╔══██║██║     ██╔═██╗     ██╔══██║██╔══██║   ██║   
-      ██║  ██║   ██║   ██║  ██║███████╗██╔╝ ██╗    ██████╔╝███████╗██║  ██║╚██████╗██║  ██╗    ██║  ██║██║  ██║   ██║   
-      ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝    ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   
-                                                                                                                  	\e[0m"
-figlet -c "ATHEX TOOL KIT"
+      ███████╗              ███████╗ ██████╗  ██████╗██╗███████╗████████╗██╗   ██╗
+      ██╔════╝              ██╔════╝██╔═══██╗██╔════╝██║██╔════╝╚══██╔══╝╚██╗ ██╔╝
+      █████╗      █████╗    ███████╗██║   ██║██║     ██║█████╗     ██║    ╚████╔╝ 
+      ██╔══╝      ╚════╝    ╚════██║██║   ██║██║     ██║██╔══╝     ██║     ╚██╔╝  
+      ██║                   ███████║╚██████╔╝╚██████╗██║███████╗   ██║      ██║   
+      ╚═╝                   ╚══════╝ ╚═════╝  ╚═════╝╚═╝╚══════╝   ╚═╝      ╚═╝   \e[0m"
 echo -e "\e[1;32m <--------------------------Tool Categories---------------------------------> \e[0m"
 echo -e "\e[1;32m 1) Information Gathering \e[0m"
 echo -e "\e[1;32m 2) Vulnerabilty Analysis \e[0m"
@@ -46,7 +44,7 @@ echo -e "\e[1;32m 6) Brute Force Tools \e[0m"
 echo -e "\e[1;32m 7) Phishing Tools \e[0m"
 echo -e "\e[1;32m 8) OS installer \e[0m"
 echo -e "\e[1;32m 9) About \e[0m"
-echo -e "\e[1;32m 10) ATHEX TOOL KIT 2 \e[0m"
+echo -e "\e[1;32m 10)ATHEX TOOLKIT 50+ TOOLS \e[0m"
 echo -e "\e[1;32m A) Press A for installing All \e[0m"
 echo -e "\e[1;32m X) For Exit \e[0m"
 echo -e "\e[1;32m <~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~> \e[0m"
@@ -54,7 +52,7 @@ read -p "Enter an option to continue: " option
 case $option in
 	1)
 		clear 
-		figlet -c "INZI TOOL KIT"
+		figlet -c "ATHEX BLACK HAT"
 		echo -e "\e[1;32m<~~~~~~~~~~~~~~~~~~~~~Menu~~~~~~~~~~~~~~~~~~~~~~~~~~>\e[0m"
 		echo -e "\e[1;32m1) Lazy Recon\e[0m"
 		echo -e "\e[1;32m2) Red Hawk\e[0m"
@@ -877,7 +875,13 @@ case $option in
         ;;
     10)        
         clear
-        figlet -c "ATHEX TOOLKIT 2"
+        echo -e "\e[1;32m          
+        ███████╗              ███████╗ ██████╗  ██████╗██╗███████╗████████╗██╗   ██╗
+        ██╔════╝              ██╔════╝██╔═══██╗██╔════╝██║██╔════╝╚══██╔══╝╚██╗ ██╔╝
+        █████╗      █████╗    ███████╗██║   ██║██║     ██║█████╗     ██║    ╚████╔╝ 
+        ██╔══╝      ╚════╝    ╚════██║██║   ██║██║     ██║██╔══╝     ██║     ╚██╔╝  
+        ██║                   ███████║╚██████╔╝╚██████╗██║███████╗   ██║      ██║   
+        ╚═╝                   ╚══════╝ ╚═════╝  ╚═════╝╚═╝╚══════╝   ╚═╝      ╚═╝      \e[0m"
         echo -e "\e[1;32m<----------------------------menu-------------------------->\e[0m"
         echo -e "\e[1;32m1) Location finder\e[0m"
         echo -e "\e[1;32m2) Camera Hacking\e[0m"
@@ -922,6 +926,7 @@ case $option in
         echo -e "\e[1;32m41) wifi-fucker\e[0m"
         echo -e "\e[1;32m42) Black-Phish\e[0m"
         echo -e "\e[1;32m43) ATHEXSQL\e[0m"
+		echo -e "\e[1;32m44) ALL HACKING TOOLS\e[0m"
         echo -e "\e[1;32mA) install All Tools In one Click\e[0m"
         echo -e "\e[1;32m<-------------------------------------------------------------->\e[0m"
         read -p "Enter an option to continue: " ochoice
@@ -1227,6 +1232,13 @@ case $option in
                 echo -e "\e[1;32m<-----------------------Installing ATHEX-SQL------------------------->\e[0m"
                 git clone https://github.com/Athexhacker/ATHEXSQL
                 ;;
+		    44)	
+                clear
+                figlet -c "ATHEX BLACK HAT"
+                echo -e "\e[1;32m<-------------------------------------------------------------------->\e[0m"
+                echo -e "\e[1;32m<-----------------------Installing ALL IN ONE HACKING TOOLS------------------------->\e[0m"
+                git clone https://github.com/Athexhacker/hackingtool
+                ;;
             A)      
                 clear
                 figlet -c "ATHEX BLACK HAT"
@@ -1276,6 +1288,7 @@ case $option in
                 git clone https://github.com/Athexhacker/wifi-fucker
                 git clone https://github.com/Athexhacker/Black-Phish
                 git clone https://github.com/Athexhacker/ATHEXSQL
+                git clone https://github.com/Athexhacker/allhackingtool
                 ;;     
             B)     
                 bash run.sh
@@ -1390,6 +1403,7 @@ case $option in
         git clone https://github.com/Athexhacker/wifi-fucker
         git clone https://github.com/Athexhacker/Black-Phish
         git clone https://github.com/Athexhacker/ATHEXSQL
+        git clone https://github.com/Athexhacker/allhackingtool
         ;;
     X)
         exit
