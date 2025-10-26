@@ -1,6 +1,6 @@
 # ATHEX BLACK HAT-Tools-Installer
 <b>Introduction</b><br>
-ATHEX BLACK HAT-Tool-Installer is a Kali Linux hacking tools installer for Termux and linux system. ATHEX BLACK HAT-Tool-Installer was developed for Termux and linux based systems. Using ATHEX BLACK HAT-Tool-Installer, you can install almost 500+ hacking tools in Termux (android) and other Linux based distributions. Now ATHEX BLACK HAT-Tool-Installer is available for Ubuntu, Debian etc.
+ATHEX BLACK HAT-Tool-Installer is a Kali Linux hacking tools installer for Termux and linux system. ATHEX BLACK HAT-Tool-Installer was developed for Termux and linux based systems. Using ATHEX BLACK HAT-Tool-Installer, you can install almost 3000+ hacking tools in Termux (android) and other Linux based distributions. Now ATHEX BLACK HAT-Tool-Installer is available for Ubuntu, Debian etc.
 
 
 ﻿# ABOUT
@@ -26,14 +26,14 @@ ATHEX BLACK HAT-Tool-Installer is a Kali Linux hacking tools installer for Termu
 2. 370+ NEW TOOLS ADDED
 3. COLOR CHANGE ALL INTO GREEEN.
 
-## New Update REleased On SATURDAY OCTOBER 2025.
+## New Update On 24 OCTOBER SATURDAY 2025.
 1. 2 NEW TOOLKITS ADDED WHICH HAVE 800+ TOOLS.
 2. SOME ERROR FIXED.
 3. LOGO CHANGED.
 4. PORT FORWADING PROBLEM SOLVED
 5. 89 TOOLS UPADTED.
 
-## NEW UPDATE ON FRIDAY OCTOBER 2025. 
+## NEW UPDATE ON 23 OCTOBER FRIDAY 2025. 
 1. NEW TOOLS ADDED.
 2. OLD TOOLS FIXED.
 3. NEW LOGO AND ANIMATION.
