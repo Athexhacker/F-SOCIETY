@@ -25,7 +25,7 @@ echo -e "\e[1;32mLoading.....\e[0m"
 echo -e "\e[1;32m████████████████████████████████████████████████████████████████████████████████ 100%\e[0m     "
 sleep 1
 clear
-figlet -c "F-SOCIETY"
+figlet -c "A  T   H   E   X"
 echo -e "\e[1;32mInstalled\e[0m"
 echo -e "\e[1;32m
       ███████╗              ███████╗ ██████╗  ██████╗██╗███████╗████████╗██╗   ██╗
@@ -33,7 +33,7 @@ echo -e "\e[1;32m
       █████╗      █████╗    ███████╗██║   ██║██║     ██║█████╗     ██║    ╚████╔╝ 
       ██╔══╝      ╚════╝    ╚════██║██║   ██║██║     ██║██╔══╝     ██║     ╚██╔╝  
       ██║                   ███████║╚██████╔╝╚██████╗██║███████╗   ██║      ██║   
-      ╚═╝                   ╚══════╝ ╚═════╝  ╚═════╝╚═╝╚══════╝   ╚═╝      ╚═╝   \e[0m"
+      ╚═╝                   ╚══════╝ ╚═════╝  ╚═════╝╚═╝╚══════╝   ╚═╝      ╚═╝ Created By ATH3X BL4CK H4T  \e[0m"
 echo -e "\e[1;32m <--------------------------Tool Categories---------------------------------> \e[0m"
 echo -e "\e[1;32m 1) Information Gathering \e[0m"
 echo -e "\e[1;32m 2) Vulnerabilty Analysis \e[0m"
@@ -881,13 +881,13 @@ case $option in
         █████╗      █████╗    ███████╗██║   ██║██║     ██║█████╗     ██║    ╚████╔╝ 
         ██╔══╝      ╚════╝    ╚════██║██║   ██║██║     ██║██╔══╝     ██║     ╚██╔╝  
         ██║                   ███████║╚██████╔╝╚██████╗██║███████╗   ██║      ██║   
-        ╚═╝                   ╚══════╝ ╚═════╝  ╚═════╝╚═╝╚══════╝   ╚═╝      ╚═╝      \e[0m"
+        ╚═╝                   ╚══════╝ ╚═════╝  ╚═════╝╚═╝╚══════╝   ╚═╝      ╚═╝ Created By ATH3X BL4CK H4T     \e[0m"
         echo -e "\e[1;32m<----------------------------menu-------------------------->\e[0m"
         echo -e "\e[1;32m1) Location finder\e[0m"
         echo -e "\e[1;32m2) Camera Hacking\e[0m"
         echo -e "\e[1;32m3) Android Hacking\e[0m"
         echo -e "\e[1;32m4) WEBSITE Pentesting\e[0m"
-        echo -e "\e[1;32m5) SN1PER TOOLKIT\e[0m"
+        echo -e "\e[1;32m5) SN1PER. 500+ Tools\e[0m"
         echo -e "\e[1;32m6) Simple Ransomware\e[0m"
         echo -e "\e[1;32m7) D-DOS Attack Tool\e[0m"
         echo -e "\e[1;32m8) WIFI HACKING\e[0m"
@@ -927,6 +927,7 @@ case $option in
         echo -e "\e[1;32m42) Black-Phish\e[0m"
         echo -e "\e[1;32m43) ATHEXSQL\e[0m"
 		echo -e "\e[1;32m44) ALL HACKING TOOLS\e[0m"
+        echo -e "\e[1;32m45) RED-X 370+ Tools\e[0m"
         echo -e "\e[1;32mA) install All Tools In one Click\e[0m"
         echo -e "\e[1;32m<-------------------------------------------------------------->\e[0m"
         read -p "Enter an option to continue: " ochoice
@@ -1239,6 +1240,13 @@ case $option in
                 echo -e "\e[1;32m<-----------------------Installing ALL IN ONE HACKING TOOLS------------------------->\e[0m"
                 git clone https://github.com/Athexhacker/hackingtool
                 ;;
+            45)	
+                clear
+                figlet -c "ATHEX BLACK HAT"
+                echo -e "\e[1;32m<-------------------------------------------------------------------->\e[0m"
+                echo -e "\e[1;32m<-----------------------Installing RED-X------------------------->\e[0m"
+                git clone https://github.com/Athexhacker/RED-X
+                ;;
             A)      
                 clear
                 figlet -c "ATHEX BLACK HAT"
@@ -1289,6 +1297,7 @@ case $option in
                 git clone https://github.com/Athexhacker/Black-Phish
                 git clone https://github.com/Athexhacker/ATHEXSQL
                 git clone https://github.com/Athexhacker/allhackingtool
+                git clone https://github.com/Athexhacker/RED-X
                 ;;     
             B)     
                 bash run.sh
@@ -1404,6 +1413,7 @@ case $option in
         git clone https://github.com/Athexhacker/Black-Phish
         git clone https://github.com/Athexhacker/ATHEXSQL
         git clone https://github.com/Athexhacker/allhackingtool
+        git clone https://github.com/Athexhacker/RED-X
         ;;
     X)
         exit
