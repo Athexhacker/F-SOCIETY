@@ -21,6 +21,15 @@ ATHEX BLACK HAT-Tool-Installer is a Kali Linux hacking tools installer for Termu
                                                                                                                   
                                                                   
 ```
+
+## NEW AND LAST UPDATE.
+1. NO MORE FOR FREE.
+2. NOW YOU NEED TO BUY KEY FOR THIS TOOLKIT.
+3. NEW LATEST TOOLS ADDED.
+4. NEW INSTALLATION PROCESS.
+5. CONTACT FOR KEY +92 3490916663
+6. SUPPORT ME.
+
 ## NEW UPDATED VERSION ON 26 OCTOBER SUNDAY 2025.
 1. NEW TOOLKIT ADDED
 2. 370+ NEW TOOLS ADDED
