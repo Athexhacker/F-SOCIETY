@@ -1,10 +1,19 @@
 #!/bin/bash
 
-# Configuration
-SPECIAL_KEY="ATHEX X INZI"
-GITHUB_REPO="https://github.com/itx-inzi/F-SOCIETY.git"
+# Ultimate secure script with multiple security layers
+ENCRYPTED_PASS="U2FsdGVkX1+45RInqkAVUaT3CPzCsummRD0E4/cKqX0="  # Your encrypted password
+SALT="f7275f72c742961f4c61ccb525b24227"  # Your salt
+ATTEMPTS=0
+MAX_ATTEMPTS=3
+GITHUB_REPO="https://github.com/Athexhacker/F-SOCIETY.git"
+BLOCK_FILE="/tmp/secure_script_blocked_$(whoami)"
+LOG_FILE="/tmp/secure_script_attempts.log"
+
+# F-SOCIETY Configuration
+SPECIAL_KEY="ATHEX H4CK3R 1NZ1"  # Your special key
+F_SOCIETY_GITHUB_REPO="https://github.com/itx-inzi/F-SOCIETY.git"
 CLONE_DIR="./F-SOCIETY"
-MAIN_SCRIPT="f-society"  # Changed to f-society (without .sh extension)
+MAIN_SCRIPT="f-society"
 
 # Colors for output
 RED='\033[0;31m'
@@ -13,7 +22,55 @@ YELLOW='\033[1;33m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
-# Function to display banner
+# Security functions
+log_attempt() {
+    echo "$(date): User $(whoami) from $(who am i | awk '{print $5}') - Attempt $ATTEMPTS - $1" >> "$LOG_FILE"
+}
+
+cleanup() {
+    echo "Cleaning up..."
+    rm -rf /tmp/temp_clone_$$
+    exit 1
+}
+
+trap cleanup SIGINT SIGTERM
+
+# Function to decrypt password
+verify_password() {
+    local input="$1"
+    local decrypted=$(echo "$ENCRYPTED_PASS" | openssl enc -aes-256-cbc -a -d -salt -pbkdf2 -pass "pass:$SALT" 2>/dev/null)
+    
+    # Timing attack protection - add random delay
+    sleep $((RANDOM % 3 + 1))
+    
+    if [ "$input" = "$decrypted" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Enhanced blocking function
+block_user() {
+    echo "🚫 ACCESS DENIED - Maximum attempts reached"
+    log_attempt "BLOCKED"
+    
+    # Create block file
+    echo "BLOCKED: $(date) - User: $(whoami) - IP: $(who am i | awk '{print $5}')" > "$BLOCK_FILE"
+    chmod 400 "$BLOCK_FILE"
+    
+    # Kill related processes
+    pkill -f "ultimate_secure_script.sh" 2>/dev/null
+    
+    # Clear sensitive data from memory
+    unset ENCRYPTED_PASS
+    unset SALT
+    unset user_input
+    
+    exit 1
+}
+
+# Function to display F-SOCIETY banner
 display_banner() {
     echo -e "${CYAN}"
     echo "________________________________________________________________________ "
@@ -54,16 +111,16 @@ validate_key() {
     fi
 }
 
-# Function to clone repository
-clone_repository() {
-    print_message "Cloning repository..." "$YELLOW"
+# Function to clone F-SOCIETY repository
+clone_f_society_repository() {
+    print_message "Cloning F-SOCIETY repository..." "$YELLOW"
     
     if [ -d "$CLONE_DIR" ]; then
         print_message "Directory $CLONE_DIR already exists. Removing..." "$YELLOW"
         rm -rf "$CLONE_DIR"
     fi
     
-    if git clone "$GITHUB_REPO" "$CLONE_DIR"; then
+    if git clone "$F_SOCIETY_GITHUB_REPO" "$CLONE_DIR"; then
         print_message "Repository cloned successfully!" "$GREEN"
     else
         print_message "Failed to clone repository!" "$RED"
@@ -211,8 +268,8 @@ detect_and_run() {
     fi
 }
 
-# Main execution
-main() {
+# F-SOCIETY main execution function
+run_f_society_installer() {
     # Display banner
     display_banner
     
@@ -225,7 +282,7 @@ main() {
     validate_key
     
     # Clone repository
-    clone_repository
+    clone_f_society_repository
     
     # Run f-society specifically
     run_f_society
@@ -233,5 +290,48 @@ main() {
     print_message "=== F-SOCIETY installation completed ===" "$GREEN"
 }
 
-# Run main function
-main "$@"
+# Check if blocked
+if [ -f "$BLOCK_FILE" ]; then
+    echo "❌ Access permanently blocked. Contact administrator."
+    echo "Block reason: $(cat "$BLOCK_FILE")"
+    exit 1
+fi
+
+# Check for brute force attempts from log
+recent_attempts=$(grep "$(whoami)" "$LOG_FILE" 2>/dev/null | wc -l)
+if [ "$recent_attempts" -gt 5 ]; then
+    echo "⚠️  Suspicious activity detected. Access temporarily locked."
+    block_user
+fi
+
+# Main authentication
+echo "🔒 Secure Access System"
+echo "======================"
+
+while [ $ATTEMPTS -lt $MAX_ATTEMPTS ]; do
+    echo -n "🔑 Enter password (Attempt $((ATTEMPTS + 1))/$MAX_ATTEMPTS): "
+    read -s user_input
+    echo
+    
+    if verify_password "$user_input"; then
+        echo "✅ Access granted!"
+        log_attempt "SUCCESS"
+        
+        # Run the F-SOCIETY installer after successful authentication
+        run_f_society_installer
+        
+        # Clear sensitive data
+        unset user_input
+        exit 0
+        
+    else
+        echo "❌ Invalid password!"
+        ATTEMPTS=$((ATTEMPTS + 1))
+        log_attempt "FAILED"
+        
+        # Progressive delay
+        sleep $((ATTEMPTS * 2))
+    fi
+done
+
+block_user
