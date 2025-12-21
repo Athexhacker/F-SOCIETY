@@ -1,0 +1,4 @@
+pip==23.3.2
+requests==2.31.0
+colorama==0.4.6
+pillow==10.1.0
