@@ -1,6 +1,6 @@
-# ATHEX BLACK HAT-Tools-Installer
+# F-SOCIETY-Tools-Installer
 <b>Introduction</b><br>
-ATHEX BLACK HAT-Tool-Installer is a Kali Linux hacking tools installer for Termux and linux system. ATHEX BLACK HAT-Tool-Installer was developed for Termux and linux based systems. Using ATHEX BLACK HAT-Tool-Installer, you can install almost 3000+ hacking tools in Termux (android) and other Linux based distributions. Now ATHEX BLACK HAT-Tool-Installer is available for Ubuntu, Debian etc.
+F-SOCIETY Tool-Installer is a Kali Linux hacking tools installer for Termux and linux system. F-SOCIETY Tool-Installer was developed for Termux and linux based systems. Using F-SOCIETY Tool-Installer, you can install almost 3000+ hacking tools in Termux (android) and other Linux based distributions. Now F-SOCIETY Tool-Installer is available for Ubuntu, Debian etc.
 
 
 ﻿# ABOUT
