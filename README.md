@@ -65,8 +65,8 @@ Let your scripts run with the elegance of python and the raw power of bash.
 
 ## SPECIAL UPDATE OF 2025 .
 
-## NEW UPDATED VERSION ON 21 December SUNDAY 2025.
-1. 1 New Toolkit Added.
+## NEW UPDATED VERSION ON 22 December MONDAY 2025.
+1. New Toolkits Added.
 2. New Tools Added.
 3. Cool And Animated Banners & Installation Process.
 4. AND THIS UPDATE IS OUR LAST UPDATE OF 2025 .
