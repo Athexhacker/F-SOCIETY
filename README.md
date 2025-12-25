@@ -137,24 +137,10 @@ ATHEX BLACK HAT TOOLKIT is a bash based script which is officially made for Cybe
 * `bash f-society.sh`
   
 ```
-
-
-
-
-
-
-
 NOW ENJOY HAPPY HACKING .......
-
-
-
-
-
-
-
 
 ## CONNECT WITH US :
  WTSP Number ; +92 349-0916663
-***This tool is only for educational purpose. If you use this tool for other purposes except education we will not be responsible in such cases.
+This tool is only for educational purpose. If you use this tool for other purposes except education we will not be responsible in such cases.
 
 ## THIS TOOL KIT IS SPECIALLY DESIGNED BY ATHEX FOR PENTESTERS .
