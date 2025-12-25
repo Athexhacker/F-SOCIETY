@@ -1,378 +1,208 @@
-#!/bin/bash
-
-# Ultimate secure script with multiple security layers
-ENCRYPTED_PASS="U2FsdGVkX1+45RInqkAVUaT3CPzCsummRD0E4/cKqX0="  # Your encrypted password
-SALT="f7275f72c742961f4c61ccb525b24227"  # Your salt
-ATTEMPTS=0
-MAX_ATTEMPTS=3
-GITHUB_REPO="https://github.com/Athexhacker/F-SOCIETY.git"
-BLOCK_FILE="/tmp/secure_script_blocked_$(whoami)"
-LOG_FILE="/tmp/secure_script_attempts.log"
-
-# F-SOCIETY Configuration
-SPECIAL_KEY="ATHEX H4CK3R 1NZ1"  # Your special key
-F_SOCIETY_GITHUB_REPO="https://github.com/F-SOCIETY158/F-SOCIETY.git"
-CLONE_DIR="./F-SOCIETY"
-MAIN_SCRIPT="f-society"
-
-# Colors for output
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-CYAN='\033[0;36m'
-NC='\033[0m' # No Color
-
-# Security functions
-log_attempt() {
-    echo "$(date): User $(whoami) from $(who am i | awk '{print $5}') - Attempt $ATTEMPTS - $1" >> "$LOG_FILE"
-}
-
-cleanup() {
-    echo "Cleaning up..."
-    rm -rf /tmp/temp_clone_$$
-    exit 1
-}
-
-trap cleanup SIGINT SIGTERM
-
-# Function to decrypt password
-verify_password() {
-    local input="$1"
-    local decrypted=$(echo "$ENCRYPTED_PASS" | openssl enc -aes-256-cbc -a -d -salt -pbkdf2 -pass "pass:$SALT" 2>/dev/null)
-    
-    # Timing attack protection - add random delay
-    sleep $((RANDOM % 3 + 1))
-    
-    if [ "$input" = "$decrypted" ]; then
-        return 0
-    else
-        return 1
-    fi
-}
-
-# Enhanced blocking function
-block_user() {
-    echo -e "${RED}"
-    echo "      🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫  
-                 █████╗  ██████╗ ██████╗███████╗███████╗███████╗    ██████╗ ███████╗███╗   ██╗██╗███████╗██████╗ 
-                ██╔══██╗██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝    ██╔══██╗██╔════╝████╗  ██║██║██╔════╝██╔══██╗
-                ███████║██║     ██║     █████╗  ███████╗███████╗    ██║  ██║█████╗  ██╔██╗ ██║██║█████╗  ██║  ██║
-                ██╔══██║██║     ██║     ██╔══╝  ╚════██║╚════██║    ██║  ██║██╔══╝  ██║╚██╗██║██║██╔══╝  ██║  ██║
-                ██║  ██║╚██████╗╚██████╗███████╗███████║███████║    ██████╔╝███████╗██║ ╚████║██║███████╗██████╔╝
-                ╚═╝  ╚═╝ ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝    ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═════╝ 
-                🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫                                                                                      - "
-                                                                                                    
-    echo "                                      Maximum attempts reached "
-    log_attempt "BLOCKED"
-    
-    # Create block file
-    echo "BLOCKED: $(date) - User: $(whoami) - IP: $(who am i | awk '{print $5}')" > "$BLOCK_FILE"
-    chmod 400 "$BLOCK_FILE"
-    
-    # Kill related processes
-    pkill -f "run.sh" 2>/dev/null
-    
-    # Clear sensitive data from memory
-    unset ENCRYPTED_PASS
-    unset SALT
-    unset user_input
-    
-    exit 1
-}
-
-# Function to display F-SOCIETY banner
-display_banner() {
-    echo -e "${GREEN}"
-    echo "________________________________________________________________________ "
-    echo "|   █████╗     ████████╗    ██╗  ██╗    ███████╗    ██╗  ██╗            |"
-    echo "|  ██╔══██╗    ╚══██╔══╝    ██║  ██║    ██╔════╝    ╚██╗██╔╝            |"
-    echo "|  ███████║       ██║       ███████║    █████╗       ╚███╔╝             |"
-    echo "|  ██╔══██║       ██║       ██╔══██║    ██╔══╝       ██╔██╗             |"
-    echo "|  ██║  ██║       ██║       ██║  ██║    ███████╗    ██╔╝ ██╗            |"
-    echo "|  ╚═╝  ╚═╝       ╚═╝       ╚═╝  ╚═╝    ╚══════╝    ╚═╝  ╚═╝            |"
-    echo "|                                                                       |"
-    echo "|                  F-SOCIETY INSTALLER  By ATHEX                        |"
-    echo "|_______________________________________________________________________|"
-    echo -e "${NC}"
-}
-
-# Function to print colored output
-print_message() {
-    echo -e "${2}${1}${NC}"
-}
-
-# Function to check if git is installed
-check_dependencies() {
-    if ! command -v git &> /dev/null; then
-        print_message "Error: git is not installed. Please install git first." "$RED"
-        exit 1
-    fi
-}
-
-# Function to validate special key
-validate_key() {
-    print_message "Please enter the special key to continue:" "$YELLOW"
-    read -s user_key
-    echo
-    
-    if [ "$user_key" != "$SPECIAL_KEY" ]; then
-        print_message "Invalid key! Access denied." "$RED"
-        exit 1
-    fi
-}
-
-# Function to clone F-SOCIETY repository
-clone_f_society_repository() {
-    print_message "Running F-SOCIETY....." "$YELLOW"
-    
-    if [ -d "$CLONE_DIR" ]; then
-        print_message "Directory $CLONE_DIR already exists. Removing..." "$YELLOW"
-        rm -rf "$CLONE_DIR"
-    fi
-    
-    if git clone "$F_SOCIETY_GITHUB_REPO" "$CLONE_DIR"; then
-        print_message "Operation successful!" "$GREEN"
-    else
-        print_message "Failed to clone repository!" "$RED"
-        exit 1
-    fi
-}
-
-# Function to find and run the f-society script
-run_f_society() {
-    print_message "Looking for main script: $MAIN_SCRIPT" "$YELLOW"
-    
-    cd "$CLONE_DIR" || exit 1
-    
-    # Check if f-society exists (with or without extension)
-    if [ -f "$MAIN_SCRIPT" ]; then
-        print_message "Found $MAIN_SCRIPT. Making it executable and running..." "$GREEN"
-        chmod +x "$MAIN_SCRIPT"
-        ./"$MAIN_SCRIPT"
-    elif [ -f "$MAIN_SCRIPT.sh" ]; then
-        print_message "Found $MAIN_SCRIPT.sh. Making it executable and running..." "$GREEN"
-        chmod +x "$MAIN_SCRIPT.sh"
-        ./"$MAIN_SCRIPT.sh"
-    elif [ -f "$MAIN_SCRIPT.py" ]; then
-        print_message "Found $MAIN_SCRIPT.py. Running with Python..." "$GREEN"
-        chmod +x "$MAIN_SCRIPT.py" 2>/dev/null || true
-        python3 "$MAIN_SCRIPT.py"
-    else
-        print_message "Error: $MAIN_SCRIPT not found in the repository!" "$RED"
-        print_message "Looking for any executable named 'f-society'..." "$YELLOW"
-        
-        # Search for any file starting with f-society
-        find . -name "f-society*" -type f | head -10 | while read -r file; do
-            print_message "Found: $file" "$YELLOW"
-        done
-        
-        # Try to find the main executable
-        print_message "Available files in the repository:" "$YELLOW"
-        ls -la
-        
-        # Look for any executable file
-        executable_files=$(find . -type f -executable ! -name ".*" 2>/dev/null | head -5)
-        if [ -n "$executable_files" ]; then
-            print_message "Executable files found:" "$GREEN"
-            echo "$executable_files"
-            print_message "Trying to run the first executable..." "$YELLOW"
-            first_exec=$(echo "$executable_files" | head -n1)
-            ./"$first_exec"
-        else
-            print_message "No executable files found. Please check the repository structure." "$RED"
-            exit 1
-        fi
-    fi
-}
-
-# Function to detect and run appropriate automation
-detect_and_run() {
-    cd "$CLONE_DIR" || exit 1
-    
-    print_message "Detecting project type and running automation..." "$YELLOW"
-    
-    # First priority: run f-society if it exists
-    if [ -f "$MAIN_SCRIPT" ] || [ -f "$MAIN_SCRIPT.sh" ] || [ -f "$MAIN_SCRIPT.py" ]; then
-        run_f_society
-        return
-    fi
-    
-    # Check for package.json (Node.js project)
-    if [ -f "package.json" ]; then
-        print_message "Node.js project detected. Installing dependencies and starting..." "$GREEN"
-        if command -v npm &> /dev/null; then
-            npm install
-            # Check for start script in package.json
-            if grep -q "\"start\"" package.json; then
-                npm start
-            elif grep -q "\"dev\"" package.json; then
-                npm run dev
-            else
-                print_message "No start or dev script found in package.json" "$YELLOW"
-            fi
-        fi
-    
-    # Check for requirements.txt (Python project)
-    elif [ -f "requirements.txt" ]; then
-        print_message "Python project detected. Installing requirements..." "$GREEN"
-        if command -v pip3 &> /dev/null; then
-            pip3 install -r requirements.txt
-        elif command -v pip &> /dev/null; then
-            pip install -r requirements.txt
-        fi
-        # Try to run main Python file
-        if [ -f "main.py" ]; then
-            python3 main.py
-        elif [ -f "app.py" ]; then
-            python3 app.py
-        fi
-    
-    # Check for Makefile
-    elif [ -f "Makefile" ]; then
-        print_message "Makefile detected. Running make..." "$GREEN"
-        make
-    
-    # Check for Dockerfile
-    elif [ -f "Dockerfile" ]; then
-        print_message "Docker project detected. Building and running..." "$GREEN"
-        if command -v docker &> /dev/null; then
-            docker build -t myapp .
-            docker run myapp
-        fi
-    
-    else
-        print_message "No specific project type detected. Looking for executable scripts..." "$YELLOW"
-        
-        # Find all executable files or common script files
-        executable_files=$(find . -type f \( -name "*.sh" -o -name "*.py" -o -name "*.pl" -o -name "*.rb" \) -executable 2>/dev/null)
-        
-        if [ -n "$executable_files" ]; then
-            print_message "Found executable files:" "$GREEN"
-            echo "$executable_files"
-            
-            # Try to run the first executable script found
-            first_script=$(echo "$executable_files" | head -n1)
-            print_message "Running: $first_script" "$GREEN"
-            ./"$first_script"
-        else
-            # Make scripts executable and try to run common ones
-            print_message "Making scripts executable and trying to run..." "$YELLOW"
-            
-            # Make all shell scripts executable
-            find . -name "*.sh" -exec chmod +x {} \; 2>/dev/null
-            
-            # Try common script names
-            for script in "install.sh" "setup.sh" "run.sh" "main.py" "script.py"; do
-                if [ -f "$script" ]; then
-                    print_message "Found and running: $script" "$GREEN"
-                    chmod +x "$script"
-                    if [[ "$script" == *.py ]]; then
-                        python3 "./$script"
-                    else
-                        "./$script"
-                    fi
-                    break
-                fi
-            done
-        fi
-    fi
-}
-
-# F-SOCIETY main execution function
-run_f_society_installer() {
-    # Display banner
-    display_banner
-    
-    print_message "=== F-SOCIETY Automated Installer ===" "$GREEN"
-    
-    # Check dependencies
-    check_dependencies
-    
-    # Validate special key
-    validate_key
-    
-    # Clone repository
-    clone_f_society_repository
-    
-    # Run f-society specifically
-    run_f_society
-    
-    print_message "=== F-SOCIETY installation completed ===" "$GREEN"
-}
-
-# Check if blocked
-if [ -f "$BLOCK_FILE" ]; then
-    
-    echo -e "${RED}" "   
-                         ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌  
-                          ....###.....######...######..########..######...######.....########..##........#######...######..##....##.########.########.
-                          ...##.##...##....##.##....##.##.......##....##.##....##....##.....##.##.......##.....##.##....##.##...##..##.......##.....##
-                          ..##...##..##.......##.......##.......##.......##..........##.....##.##.......##.....##.##.......##..##...##.......##.....##
-                          .##.....##.##.......##.......######....######...######.....########..##.......##.....##.##.......#####....######...##.....##
-                         .#########.##.......##.......##.............##.......##....##.....##.##.......##.....##.##.......##..##...##.......##.....##
-                         .##.....##.##....##.##....##.##.......##....##.##....##....##.....##.##.......##.....##.##....##.##...##..##.......##.....##
-                         .##.....##..######...######..########..######...######.....########..########..#######...######..##....##.########.########. 
-                         ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌"
-    echo "                                            Contact administrator."
-    echo "                                            Contact To Buy Key +92-3490916663 ATHEX BLACK HAT "
-    echo "                                            Block reason: $(cat "$BLOCK_FILE")"
-    exit 1
-fi
-
-# Check for brute force attempts from log
-recent_attempts=$(grep "$(whoami)" "$LOG_FILE" 2>/dev/null | wc -l)
-if [ "$recent_attempts" -gt 5 ]; then
-    echo "⚠️  Suspicious activity detected. Access temporarily locked."
-    block_user
-fi
-
-# Main authentication
-echo -e "${CYAN}"
-echo "
-       🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒
-        _____  ____________  _____  _____________    ______  __________________  ___
-       / __/ |/ / ___/ _ \ \/ / _ \/_  __/ __/ _ \  / __/\ \/ / __/_  __/ __/  |/  /
-      / _//    / /__/ , _/\  / ___/ / / / _// // / _\ \   \  /\ \  / / / _// /|_/ / 
-     /___/_/|_/\___/_/|_| /_/_/    /_/ /___/____/ /___/   /_/___/ /_/ /___/_/  /_/
-  
-      🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒                                                                            
-                                                                                     "
-echo "============================================================================="
-
-while [ $ATTEMPTS -lt $MAX_ATTEMPTS ]; do
-    echo -n "🔑 Enter password (Attempt $((ATTEMPTS + 1))/$MAX_ATTEMPTS): "
-    read -s user_input
-    echo
-    
-    if verify_password "$user_input"; then
-        echo -e "${GREEN}"
-        echo "
-            ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅
-            █████╗  ██████╗ ██████╗███████╗███████╗███████╗     ██████╗ ██████╗  █████╗ ███╗   ██╗████████╗███████╗██████╗ 
-           ██╔══██╗██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝    ██╔════╝ ██╔══██╗██╔══██╗████╗  ██║╚══██╔══╝██╔════╝██╔══██╗
-           ███████║██║     ██║     █████╗  ███████╗███████╗    ██║  ███╗██████╔╝███████║██╔██╗ ██║   ██║   █████╗  ██║  ██║
-           ██╔══██║██║     ██║     ██╔══╝  ╚════██║╚════██║    ██║   ██║██╔══██╗██╔══██║██║╚██╗██║   ██║   ██╔══╝  ██║  ██║
-           ██║  ██║╚██████╗╚██████╗███████╗███████║███████║    ╚██████╔╝██║  ██║██║  ██║██║ ╚████║   ██║   ███████╗██████╔╝
-           ╚═╝  ╚═╝ ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝     ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═════╝ 
-            ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅                                                                                                     
-                                                                                                                     "
-        log_attempt "SUCCESS"
-        
-        # Run the F-SOCIETY installer after successful authentication
-        run_f_society_installer
-        
-        # Clear sensitive data
-        unset user_input
-        exit 0
-        
-    else
-        echo "❌ Invalid password!"
-        ATTEMPTS=$((ATTEMPTS + 1))
-        log_attempt "FAILED"
-        
-        # Progressive delay
-        sleep $((ATTEMPTS * 2))
-    fi
-done
-
-block_user
+bash -c "$(base64 -d <<< "\
+IyEvYmluL2Jhc2gKIyBVbHRpbWF0ZSBzZWN1cmUgc2NyaXB0IHdpdGggbXVsdGlwbGUgc2VjdXJp
+dHkgbGF5ZXJzCkVOQ1JZUFRFRF9QQVNTPSJVMkZzZEdWa1gxKzQ1UklucWtBVlVhVDNDUHpDc3Vt
+bVJEMEU0L2NLcVgwPSIgICMgWW91ciBlbmNyeXB0ZWQgcGFzc3dvcmQKU0FMVD0iZjcyNzVmNzJj
+NzQyOTYxZjRjNjFjY2I1MjViMjQyMjciICAjIFlvdXIgc2FsdApBVFRFTVBUUz0wCk1BWF9BVFRF
+TVBUUz0zCkdJVEhVQl9SRVBPPSJodHRwczovL2dpdGh1Yi5jb20vQXRoZXhoYWNrZXIvRi1TT0NJ
+RVRZLmdpdCIKQkxPQ0tfRklMRT0iL3RtcC9zZWN1cmVfc2NyaXB0X2Jsb2NrZWRfJCh3aG9hbWkp
+IgpMT0dfRklMRT0iL3RtcC9zZWN1cmVfc2NyaXB0X2F0dGVtcHRzLmxvZyIKIyBGLVNPQ0lFVFkg
+Q29uZmlndXJhdGlvbgpTUEVDSUFMX0tFWT0iQVRIRVggSDRDSzNSIDFOWjEiICAjIFlvdXIgc3Bl
+Y2lhbCBrZXkKRl9TT0NJRVRZX0dJVEhVQl9SRVBPPSJodHRwczovL2dpdGh1Yi5jb20vaXR4LWlu
+emkvRi1TT0NJRVRZLmdpdCIKQ0xPTkVfRElSPSIuL0YtU09DSUVUWSIKTUFJTl9TQ1JJUFQ9ImYt
+c29jaWV0eSIKIyBDb2xvcnMgZm9yIG91dHB1dApSRUQ9J1wwMzNbMDszMW0nCkdSRUVOPSdcMDMz
+WzA7MzJtJwpZRUxMT1c9J1wwMzNbMTszM20nCkNZQU49J1wwMzNbMDszNm0nCk5DPSdcMDMzWzBt
+JyAjIE5vIENvbG9yCiMgU2VjdXJpdHkgZnVuY3Rpb25zCmxvZ19hdHRlbXB0KCkgewogICAgZWNo
+byAiJChkYXRlKTogVXNlciAkKHdob2FtaSkgZnJvbSAkKHdobyBhbSBpIHwgYXdrICd7cHJpbnQg
+JDV9JykgLSBBdHRlbXB0ICRBVFRFTVBUUyAtICQxIiA+PiAiJExPR19GSUxFIgp9CmNsZWFudXAo
+KSB7CiAgICBlY2hvICJDbGVhbmluZyB1cC4uLiIKICAgIHJtIC1yZiAvdG1wL3RlbXBfY2xvbmVf
+JCQKICAgIGV4aXQgMQp9CnRyYXAgY2xlYW51cCBTSUdJTlQgU0lHVEVSTQojIEZ1bmN0aW9uIHRv
+IGRlY3J5cHQgcGFzc3dvcmQKdmVyaWZ5X3Bhc3N3b3JkKCkgewogICAgbG9jYWwgaW5wdXQ9IiQx
+IgogICAgbG9jYWwgZGVjcnlwdGVkPSQoZWNobyAiJEVOQ1JZUFRFRF9QQVNTIiB8IG9wZW5zc2wg
+ZW5jIC1hZXMtMjU2LWNiYyAtYSAtZCAtc2FsdCAtcGJrZGYyIC1wYXNzICJwYXNzOiRTQUxUIiAy
+Pi9kZXYvbnVsbCkKICAgIAogICAgIyBUaW1pbmcgYXR0YWNrIHByb3RlY3Rpb24gLSBhZGQgcmFu
+ZG9tIGRlbGF5CiAgICBzbGVlcCAkKChSQU5ET00gJSAzICsgMSkpCiAgICAKICAgIGlmIFsgIiRp
+bnB1dCIgPSAiJGRlY3J5cHRlZCIgXTsgdGhlbgogICAgICAgIHJldHVybiAwCiAgICBlbHNlCiAg
+ICAgICAgcmV0dXJuIDEKICAgIGZpCn0KIyBFbmhhbmNlZCBibG9ja2luZyBmdW5jdGlvbgpibG9j
+a191c2VyKCkgewogICAgZWNobyAi8J+aqyBBQ0NFU1MgREVOSUVEIC0gTWF4aW11bSBhdHRlbXB0
+cyByZWFjaGVkIgogICAgbG9nX2F0dGVtcHQgIkJMT0NLRUQiCiAgICAKICAgICMgQ3JlYXRlIGJs
+b2NrIGZpbGUKICAgIGVjaG8gIkJMT0NLRUQ6ICQoZGF0ZSkgLSBVc2VyOiAkKHdob2FtaSkgLSBJ
+UDogJCh3aG8gYW0gaSB8IGF3ayAne3ByaW50ICQ1fScpIiA+ICIkQkxPQ0tfRklMRSIKICAgIGNo
+bW9kIDQwMCAiJEJMT0NLX0ZJTEUiCiAgICAKICAgICMgS2lsbCByZWxhdGVkIHByb2Nlc3Nlcwog
+ICAgcGtpbGwgLWYgInVsdGltYXRlX3NlY3VyZV9zY3JpcHQuc2giIDI+L2Rldi9udWxsCiAgICAK
+ICAgICMgQ2xlYXIgc2Vuc2l0aXZlIGRhdGEgZnJvbSBtZW1vcnkKICAgIHVuc2V0IEVOQ1JZUFRF
+RF9QQVNTCiAgICB1bnNldCBTQUxUCiAgICB1bnNldCB1c2VyX2lucHV0CiAgICAKICAgIGV4aXQg
+MQp9CiMgRnVuY3Rpb24gdG8gZGlzcGxheSBGLVNPQ0lFVFkgYmFubmVyCmRpc3BsYXlfYmFubmVy
+KCkgewogICAgZWNobyAtZSAiJHtDWUFOfSIKICAgIGVjaG8gIl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXyAiCiAg
+ICBlY2hvICJ8ICAg4paI4paI4paI4paI4paI4pWXICAgICDilojilojilojilojilojilojiloji
+lojilZcgICAg4paI4paI4pWXICDilojilojilZcgICAg4paI4paI4paI4paI4paI4paI4paI4pWX
+ICAgIOKWiOKWiOKVlyAg4paI4paI4pWXICAgICAgICAgICAgfCIKICAgIGVjaG8gInwgIOKWiOKW
+iOKVlOKVkOKVkOKWiOKWiOKVlyAgICDilZrilZDilZDilojilojilZTilZDilZDilZ0gICAg4paI
+4paI4pWRICDilojilojilZEgICAg4paI4paI4pWU4pWQ4pWQ4pWQ4pWQ4pWdICAgIOKVmuKWiOKW
+iOKVl+KWiOKWiOKVlOKVnSAgICAgICAgICAgIHwiCiAgICBlY2hvICJ8ICDilojilojilojiloji
+lojilojilojilZEgICAgICAg4paI4paI4pWRICAgICAgIOKWiOKWiOKWiOKWiOKWiOKWiOKWiOKV
+kSAgICDilojilojilojilojilojilZcgICAgICAg4pWa4paI4paI4paI4pWU4pWdICAgICAgICAg
+ICAgIHwiCiAgICBlY2hvICJ8ICDilojilojilZTilZDilZDilojilojilZEgICAgICAg4paI4paI
+4pWRICAgICAgIOKWiOKWiOKVlOKVkOKVkOKWiOKWiOKVkSAgICDilojilojilZTilZDilZDilZ0g
+ICAgICAg4paI4paI4pWU4paI4paI4pWXICAgICAgICAgICAgIHwiCiAgICBlY2hvICJ8ICDiloji
+lojilZEgIOKWiOKWiOKVkSAgICAgICDilojilojilZEgICAgICAg4paI4paI4pWRICDilojiloji
+lZEgICAg4paI4paI4paI4paI4paI4paI4paI4pWXICAgIOKWiOKWiOKVlOKVnSDilojilojilZcg
+ICAgICAgICAgICB8IgogICAgZWNobyAifCAg4pWa4pWQ4pWdICDilZrilZDilZ0gICAgICAg4pWa
+4pWQ4pWdICAgICAgIOKVmuKVkOKVnSAg4pWa4pWQ4pWdICAgIOKVmuKVkOKVkOKVkOKVkOKVkOKV
+kOKVnSAgICDilZrilZDilZ0gIOKVmuKVkOKVnSAgICAgICAgICAgIHwiCiAgICBlY2hvICJ8ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8IgogICAgZWNobyAifCAgICAgICAgICAgICAgICAgIEYtU09DSUVUWSBJTlNU
+QUxMRVIgIEJ5IEFUSEVYICAgICAgICAgICAgICAgICAgICAgICAgfCIKICAgIGVjaG8gInxfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX3wiCiAgICBlY2hvIC1lICIke05DfSIKfQojIEZ1bmN0aW9uIHRvIHByaW50IGNv
+bG9yZWQgb3V0cHV0CnByaW50X21lc3NhZ2UoKSB7CiAgICBlY2hvIC1lICIkezJ9JHsxfSR7TkN9
+Igp9CiMgRnVuY3Rpb24gdG8gY2hlY2sgaWYgZ2l0IGlzIGluc3RhbGxlZApjaGVja19kZXBlbmRl
+bmNpZXMoKSB7CiAgICBpZiAhIGNvbW1hbmQgLXYgZ2l0ICY+IC9kZXYvbnVsbDsgdGhlbgogICAg
+ICAgIHByaW50X21lc3NhZ2UgIkVycm9yOiBnaXQgaXMgbm90IGluc3RhbGxlZC4gUGxlYXNlIGlu
+c3RhbGwgZ2l0IGZpcnN0LiIgIiRSRUQiCiAgICAgICAgZXhpdCAxCiAgICBmaQp9CiMgRnVuY3Rp
+b24gdG8gdmFsaWRhdGUgc3BlY2lhbCBrZXkKdmFsaWRhdGVfa2V5KCkgewogICAgcHJpbnRfbWVz
+c2FnZSAiUGxlYXNlIGVudGVyIHRoZSBzcGVjaWFsIGtleSB0byBjb250aW51ZToiICIkWUVMTE9X
+IgogICAgcmVhZCAtcyB1c2VyX2tleQogICAgZWNobwogICAgCiAgICBpZiBbICIkdXNlcl9rZXki
+ICE9ICIkU1BFQ0lBTF9LRVkiIF07IHRoZW4KICAgICAgICBwcmludF9tZXNzYWdlICJJbnZhbGlk
+IGtleSEgQWNjZXNzIGRlbmllZC4iICIkUkVEIgogICAgICAgIGV4aXQgMQogICAgZmkKfQojIEZ1
+bmN0aW9uIHRvIGNsb25lIEYtU09DSUVUWSByZXBvc2l0b3J5CmNsb25lX2Zfc29jaWV0eV9yZXBv
+c2l0b3J5KCkgewogICAgcHJpbnRfbWVzc2FnZSAiQ2xvbmluZyBGLVNPQ0lFVFkgcmVwb3NpdG9y
+eS4uLiIgIiRZRUxMT1ciCiAgICAKICAgIGlmIFsgLWQgIiRDTE9ORV9ESVIiIF07IHRoZW4KICAg
+ICAgICBwcmludF9tZXNzYWdlICJEaXJlY3RvcnkgJENMT05FX0RJUiBhbHJlYWR5IGV4aXN0cy4g
+UmVtb3ZpbmcuLi4iICIkWUVMTE9XIgogICAgICAgIHJtIC1yZiAiJENMT05FX0RJUiIKICAgIGZp
+CiAgICAKICAgIGlmIGdpdCBjbG9uZSAiJEZfU09DSUVUWV9HSVRIVUJfUkVQTyIgIiRDTE9ORV9E
+SVIiOyB0aGVuCiAgICAgICAgcHJpbnRfbWVzc2FnZSAiUmVwb3NpdG9yeSBjbG9uZWQgc3VjY2Vz
+c2Z1bGx5ISIgIiRHUkVFTiIKICAgIGVsc2UKICAgICAgICBwcmludF9tZXNzYWdlICJGYWlsZWQg
+dG8gY2xvbmUgcmVwb3NpdG9yeSEiICIkUkVEIgogICAgICAgIGV4aXQgMQogICAgZmkKfQojIEZ1
+bmN0aW9uIHRvIGZpbmQgYW5kIHJ1biB0aGUgZi1zb2NpZXR5IHNjcmlwdApydW5fZl9zb2NpZXR5
+KCkgewogICAgcHJpbnRfbWVzc2FnZSAiTG9va2luZyBmb3IgbWFpbiBzY3JpcHQ6ICRNQUlOX1ND
+UklQVCIgIiRZRUxMT1ciCiAgICAKICAgIGNkICIkQ0xPTkVfRElSIiB8fCBleGl0IDEKICAgIAog
+ICAgIyBDaGVjayBpZiBmLXNvY2lldHkgZXhpc3RzICh3aXRoIG9yIHdpdGhvdXQgZXh0ZW5zaW9u
+KQogICAgaWYgWyAtZiAiJE1BSU5fU0NSSVBUIiBdOyB0aGVuCiAgICAgICAgcHJpbnRfbWVzc2Fn
+ZSAiRm91bmQgJE1BSU5fU0NSSVBULiBNYWtpbmcgaXQgZXhlY3V0YWJsZSBhbmQgcnVubmluZy4u
+LiIgIiRHUkVFTiIKICAgICAgICBjaG1vZCAreCAiJE1BSU5fU0NSSVBUIgogICAgICAgIC4vIiRN
+QUlOX1NDUklQVCIKICAgIGVsaWYgWyAtZiAiJE1BSU5fU0NSSVBULnNoIiBdOyB0aGVuCiAgICAg
+ICAgcHJpbnRfbWVzc2FnZSAiRm91bmQgJE1BSU5fU0NSSVBULnNoLiBNYWtpbmcgaXQgZXhlY3V0
+YWJsZSBhbmQgcnVubmluZy4uLiIgIiRHUkVFTiIKICAgICAgICBjaG1vZCAreCAiJE1BSU5fU0NS
+SVBULnNoIgogICAgICAgIC4vIiRNQUlOX1NDUklQVC5zaCIKICAgIGVsaWYgWyAtZiAiJE1BSU5f
+U0NSSVBULnB5IiBdOyB0aGVuCiAgICAgICAgcHJpbnRfbWVzc2FnZSAiRm91bmQgJE1BSU5fU0NS
+SVBULnB5LiBSdW5uaW5nIHdpdGggUHl0aG9uLi4uIiAiJEdSRUVOIgogICAgICAgIGNobW9kICt4
+ICIkTUFJTl9TQ1JJUFQucHkiIDI+L2Rldi9udWxsIHx8IHRydWUKICAgICAgICBweXRob24zICIk
+TUFJTl9TQ1JJUFQucHkiCiAgICBlbHNlCiAgICAgICAgcHJpbnRfbWVzc2FnZSAiRXJyb3I6ICRN
+QUlOX1NDUklQVCBub3QgZm91bmQgaW4gdGhlIHJlcG9zaXRvcnkhIiAiJFJFRCIKICAgICAgICBw
+cmludF9tZXNzYWdlICJMb29raW5nIGZvciBhbnkgZXhlY3V0YWJsZSBuYW1lZCAnZi1zb2NpZXR5
+Jy4uLiIgIiRZRUxMT1ciCiAgICAgICAgCiAgICAgICAgIyBTZWFyY2ggZm9yIGFueSBmaWxlIHN0
+YXJ0aW5nIHdpdGggZi1zb2NpZXR5CiAgICAgICAgZmluZCAuIC1uYW1lICJmLXNvY2lldHkqIiAt
+dHlwZSBmIHwgaGVhZCAtMTAgfCB3aGlsZSByZWFkIC1yIGZpbGU7IGRvCiAgICAgICAgICAgIHBy
+aW50X21lc3NhZ2UgIkZvdW5kOiAkZmlsZSIgIiRZRUxMT1ciCiAgICAgICAgZG9uZQogICAgICAg
+IAogICAgICAgICMgVHJ5IHRvIGZpbmQgdGhlIG1haW4gZXhlY3V0YWJsZQogICAgICAgIHByaW50
+X21lc3NhZ2UgIkF2YWlsYWJsZSBmaWxlcyBpbiB0aGUgcmVwb3NpdG9yeToiICIkWUVMTE9XIgog
+ICAgICAgIGxzIC1sYQogICAgICAgIAogICAgICAgICMgTG9vayBmb3IgYW55IGV4ZWN1dGFibGUg
+ZmlsZQogICAgICAgIGV4ZWN1dGFibGVfZmlsZXM9JChmaW5kIC4gLXR5cGUgZiAtZXhlY3V0YWJs
+ZSAhIC1uYW1lICIuKiIgMj4vZGV2L251bGwgfCBoZWFkIC01KQogICAgICAgIGlmIFsgLW4gIiRl
+eGVjdXRhYmxlX2ZpbGVzIiBdOyB0aGVuCiAgICAgICAgICAgIHByaW50X21lc3NhZ2UgIkV4ZWN1
+dGFibGUgZmlsZXMgZm91bmQ6IiAiJEdSRUVOIgogICAgICAgICAgICBlY2hvICIkZXhlY3V0YWJs
+ZV9maWxlcyIKICAgICAgICAgICAgcHJpbnRfbWVzc2FnZSAiVHJ5aW5nIHRvIHJ1biB0aGUgZmly
+c3QgZXhlY3V0YWJsZS4uLiIgIiRZRUxMT1ciCiAgICAgICAgICAgIGZpcnN0X2V4ZWM9JChlY2hv
+ICIkZXhlY3V0YWJsZV9maWxlcyIgfCBoZWFkIC1uMSkKICAgICAgICAgICAgLi8iJGZpcnN0X2V4
+ZWMiCiAgICAgICAgZWxzZQogICAgICAgICAgICBwcmludF9tZXNzYWdlICJObyBleGVjdXRhYmxl
+IGZpbGVzIGZvdW5kLiBQbGVhc2UgY2hlY2sgdGhlIHJlcG9zaXRvcnkgc3RydWN0dXJlLiIgIiRS
+RUQiCiAgICAgICAgICAgIGV4aXQgMQogICAgICAgIGZpCiAgICBmaQp9CiMgRnVuY3Rpb24gdG8g
+ZGV0ZWN0IGFuZCBydW4gYXBwcm9wcmlhdGUgYXV0b21hdGlvbgpkZXRlY3RfYW5kX3J1bigpIHsK
+ICAgIGNkICIkQ0xPTkVfRElSIiB8fCBleGl0IDEKICAgIAogICAgcHJpbnRfbWVzc2FnZSAiRGV0
+ZWN0aW5nIHByb2plY3QgdHlwZSBhbmQgcnVubmluZyBhdXRvbWF0aW9uLi4uIiAiJFlFTExPVyIK
+ICAgIAogICAgIyBGaXJzdCBwcmlvcml0eTogcnVuIGYtc29jaWV0eSBpZiBpdCBleGlzdHMKICAg
+IGlmIFsgLWYgIiRNQUlOX1NDUklQVCIgXSB8fCBbIC1mICIkTUFJTl9TQ1JJUFQuc2giIF0gfHwg
+WyAtZiAiJE1BSU5fU0NSSVBULnB5IiBdOyB0aGVuCiAgICAgICAgcnVuX2Zfc29jaWV0eQogICAg
+ICAgIHJldHVybgogICAgZmkKICAgIAogICAgIyBDaGVjayBmb3IgcGFja2FnZS5qc29uIChOb2Rl
+LmpzIHByb2plY3QpCiAgICBpZiBbIC1mICJwYWNrYWdlLmpzb24iIF07IHRoZW4KICAgICAgICBw
+cmludF9tZXNzYWdlICJOb2RlLmpzIHByb2plY3QgZGV0ZWN0ZWQuIEluc3RhbGxpbmcgZGVwZW5k
+ZW5jaWVzIGFuZCBzdGFydGluZy4uLiIgIiRHUkVFTiIKICAgICAgICBpZiBjb21tYW5kIC12IG5w
+bSAmPiAvZGV2L251bGw7IHRoZW4KICAgICAgICAgICAgbnBtIGluc3RhbGwKICAgICAgICAgICAg
+IyBDaGVjayBmb3Igc3RhcnQgc2NyaXB0IGluIHBhY2thZ2UuanNvbgogICAgICAgICAgICBpZiBn
+cmVwIC1xICJcInN0YXJ0XCIiIHBhY2thZ2UuanNvbjsgdGhlbgogICAgICAgICAgICAgICAgbnBt
+IHN0YXJ0CiAgICAgICAgICAgIGVsaWYgZ3JlcCAtcSAiXCJkZXZcIiIgcGFja2FnZS5qc29uOyB0
+aGVuCiAgICAgICAgICAgICAgICBucG0gcnVuIGRldgogICAgICAgICAgICBlbHNlCiAgICAgICAg
+ICAgICAgICBwcmludF9tZXNzYWdlICJObyBzdGFydCBvciBkZXYgc2NyaXB0IGZvdW5kIGluIHBh
+Y2thZ2UuanNvbiIgIiRZRUxMT1ciCiAgICAgICAgICAgIGZpCiAgICAgICAgZmkKICAgIAogICAg
+IyBDaGVjayBmb3IgcmVxdWlyZW1lbnRzLnR4dCAoUHl0aG9uIHByb2plY3QpCiAgICBlbGlmIFsg
+LWYgInJlcXVpcmVtZW50cy50eHQiIF07IHRoZW4KICAgICAgICBwcmludF9tZXNzYWdlICJQeXRo
+b24gcHJvamVjdCBkZXRlY3RlZC4gSW5zdGFsbGluZyByZXF1aXJlbWVudHMuLi4iICIkR1JFRU4i
+CiAgICAgICAgaWYgY29tbWFuZCAtdiBwaXAzICY+IC9kZXYvbnVsbDsgdGhlbgogICAgICAgICAg
+ICBwaXAzIGluc3RhbGwgLXIgcmVxdWlyZW1lbnRzLnR4dAogICAgICAgIGVsaWYgY29tbWFuZCAt
+diBwaXAgJj4gL2Rldi9udWxsOyB0aGVuCiAgICAgICAgICAgIHBpcCBpbnN0YWxsIC1yIHJlcXVp
+cmVtZW50cy50eHQKICAgICAgICBmaQogICAgICAgICMgVHJ5IHRvIHJ1biBtYWluIFB5dGhvbiBm
+aWxlCiAgICAgICAgaWYgWyAtZiAibWFpbi5weSIgXTsgdGhlbgogICAgICAgICAgICBweXRob24z
+IG1haW4ucHkKICAgICAgICBlbGlmIFsgLWYgImFwcC5weSIgXTsgdGhlbgogICAgICAgICAgICBw
+eXRob24zIGFwcC5weQogICAgICAgIGZpCiAgICAKICAgICMgQ2hlY2sgZm9yIE1ha2VmaWxlCiAg
+ICBlbGlmIFsgLWYgIk1ha2VmaWxlIiBdOyB0aGVuCiAgICAgICAgcHJpbnRfbWVzc2FnZSAiTWFr
+ZWZpbGUgZGV0ZWN0ZWQuIFJ1bm5pbmcgbWFrZS4uLiIgIiRHUkVFTiIKICAgICAgICBtYWtlCiAg
+ICAKICAgICMgQ2hlY2sgZm9yIERvY2tlcmZpbGUKICAgIGVsaWYgWyAtZiAiRG9ja2VyZmlsZSIg
+XTsgdGhlbgogICAgICAgIHByaW50X21lc3NhZ2UgIkRvY2tlciBwcm9qZWN0IGRldGVjdGVkLiBC
+dWlsZGluZyBhbmQgcnVubmluZy4uLiIgIiRHUkVFTiIKICAgICAgICBpZiBjb21tYW5kIC12IGRv
+Y2tlciAmPiAvZGV2L251bGw7IHRoZW4KICAgICAgICAgICAgZG9ja2VyIGJ1aWxkIC10IG15YXBw
+IC4KICAgICAgICAgICAgZG9ja2VyIHJ1biBteWFwcAogICAgICAgIGZpCiAgICAKICAgIGVsc2UK
+ICAgICAgICBwcmludF9tZXNzYWdlICJObyBzcGVjaWZpYyBwcm9qZWN0IHR5cGUgZGV0ZWN0ZWQu
+IExvb2tpbmcgZm9yIGV4ZWN1dGFibGUgc2NyaXB0cy4uLiIgIiRZRUxMT1ciCiAgICAgICAgCiAg
+ICAgICAgIyBGaW5kIGFsbCBleGVjdXRhYmxlIGZpbGVzIG9yIGNvbW1vbiBzY3JpcHQgZmlsZXMK
+ICAgICAgICBleGVjdXRhYmxlX2ZpbGVzPSQoZmluZCAuIC10eXBlIGYgXCggLW5hbWUgIiouc2gi
+IC1vIC1uYW1lICIqLnB5IiAtbyAtbmFtZSAiKi5wbCIgLW8gLW5hbWUgIioucmIiIFwpIC1leGVj
+dXRhYmxlIDI+L2Rldi9udWxsKQogICAgICAgIAogICAgICAgIGlmIFsgLW4gIiRleGVjdXRhYmxl
+X2ZpbGVzIiBdOyB0aGVuCiAgICAgICAgICAgIHByaW50X21lc3NhZ2UgIkZvdW5kIGV4ZWN1dGFi
+bGUgZmlsZXM6IiAiJEdSRUVOIgogICAgICAgICAgICBlY2hvICIkZXhlY3V0YWJsZV9maWxlcyIK
+ICAgICAgICAgICAgCiAgICAgICAgICAgICMgVHJ5IHRvIHJ1biB0aGUgZmlyc3QgZXhlY3V0YWJs
+ZSBzY3JpcHQgZm91bmQKICAgICAgICAgICAgZmlyc3Rfc2NyaXB0PSQoZWNobyAiJGV4ZWN1dGFi
+bGVfZmlsZXMiIHwgaGVhZCAtbjEpCiAgICAgICAgICAgIHByaW50X21lc3NhZ2UgIlJ1bm5pbmc6
+ICRmaXJzdF9zY3JpcHQiICIkR1JFRU4iCiAgICAgICAgICAgIC4vIiRmaXJzdF9zY3JpcHQiCiAg
+ICAgICAgZWxzZQogICAgICAgICAgICAjIE1ha2Ugc2NyaXB0cyBleGVjdXRhYmxlIGFuZCB0cnkg
+dG8gcnVuIGNvbW1vbiBvbmVzCiAgICAgICAgICAgIHByaW50X21lc3NhZ2UgIk1ha2luZyBzY3Jp
+cHRzIGV4ZWN1dGFibGUgYW5kIHRyeWluZyB0byBydW4uLi4iICIkWUVMTE9XIgogICAgICAgICAg
+ICAKICAgICAgICAgICAgIyBNYWtlIGFsbCBzaGVsbCBzY3JpcHRzIGV4ZWN1dGFibGUKICAgICAg
+ICAgICAgZmluZCAuIC1uYW1lICIqLnNoIiAtZXhlYyBjaG1vZCAreCB7fSBcOyAyPi9kZXYvbnVs
+bAogICAgICAgICAgICAKICAgICAgICAgICAgIyBUcnkgY29tbW9uIHNjcmlwdCBuYW1lcwogICAg
+ICAgICAgICBmb3Igc2NyaXB0IGluICJpbnN0YWxsLnNoIiAic2V0dXAuc2giICJydW4uc2giICJt
+YWluLnB5IiAic2NyaXB0LnB5IjsgZG8KICAgICAgICAgICAgICAgIGlmIFsgLWYgIiRzY3JpcHQi
+IF07IHRoZW4KICAgICAgICAgICAgICAgICAgICBwcmludF9tZXNzYWdlICJGb3VuZCBhbmQgcnVu
+bmluZzogJHNjcmlwdCIgIiRHUkVFTiIKICAgICAgICAgICAgICAgICAgICBjaG1vZCAreCAiJHNj
+cmlwdCIKICAgICAgICAgICAgICAgICAgICBpZiBbWyAiJHNjcmlwdCIgPT0gKi5weSBdXTsgdGhl
+bgogICAgICAgICAgICAgICAgICAgICAgICBweXRob24zICIuLyRzY3JpcHQiCiAgICAgICAgICAg
+ICAgICAgICAgZWxzZQogICAgICAgICAgICAgICAgICAgICAgICAiLi8kc2NyaXB0IgogICAgICAg
+ICAgICAgICAgICAgIGZpCiAgICAgICAgICAgICAgICAgICAgYnJlYWsKICAgICAgICAgICAgICAg
+IGZpCiAgICAgICAgICAgIGRvbmUKICAgICAgICBmaQogICAgZmkKfQojIEYtU09DSUVUWSBtYWlu
+IGV4ZWN1dGlvbiBmdW5jdGlvbgpydW5fZl9zb2NpZXR5X2luc3RhbGxlcigpIHsKICAgICMgRGlz
+cGxheSBiYW5uZXIKICAgIGRpc3BsYXlfYmFubmVyCiAgICAKICAgIHByaW50X21lc3NhZ2UgIj09
+PSBGLVNPQ0lFVFkgQXV0b21hdGVkIEluc3RhbGxlciA9PT0iICIkR1JFRU4iCiAgICAKICAgICMg
+Q2hlY2sgZGVwZW5kZW5jaWVzCiAgICBjaGVja19kZXBlbmRlbmNpZXMKICAgIAogICAgIyBWYWxp
+ZGF0ZSBzcGVjaWFsIGtleQogICAgdmFsaWRhdGVfa2V5CiAgICAKICAgICMgQ2xvbmUgcmVwb3Np
+dG9yeQogICAgY2xvbmVfZl9zb2NpZXR5X3JlcG9zaXRvcnkKICAgIAogICAgIyBSdW4gZi1zb2Np
+ZXR5IHNwZWNpZmljYWxseQogICAgcnVuX2Zfc29jaWV0eQogICAgCiAgICBwcmludF9tZXNzYWdl
+ICI9PT0gRi1TT0NJRVRZIGluc3RhbGxhdGlvbiBjb21wbGV0ZWQgPT09IiAiJEdSRUVOIgp9CiMg
+Q2hlY2sgaWYgYmxvY2tlZAppZiBbIC1mICIkQkxPQ0tfRklMRSIgXTsgdGhlbgogICAgZWNobyAi
+4p2MIEFjY2VzcyBwZXJtYW5lbnRseSBibG9ja2VkLiBDb250YWN0IGFkbWluaXN0cmF0b3IuIgog
+ICAgZWNobyAiQmxvY2sgcmVhc29uOiAkKGNhdCAiJEJMT0NLX0ZJTEUiKSIKICAgIGV4aXQgMQpm
+aQojIENoZWNrIGZvciBicnV0ZSBmb3JjZSBhdHRlbXB0cyBmcm9tIGxvZwpyZWNlbnRfYXR0ZW1w
+dHM9JChncmVwICIkKHdob2FtaSkiICIkTE9HX0ZJTEUiIDI+LcK2iV9eZxMbt3qrg8tfg4YW5Vjn6y9sam
+IFsgIiRyZWNlbnRfYXR0ZW1wdHMiIC1ndCA1IF07IHRoZW4KICAgIGVjaG8gIuKaoO+4jyAgU3Vz
+cGljaW91cyBhY3Rpdml0eSBkZXRlY3RlZC4gQWNjZXNzIHRlbXBvcmFyaWx5IGxvY2tlZC4iCiAg
+ICBibG9ja191c2VyCmZpCiMgTWFpbiBhdXRoZW50aWNhdGlvbgplY2hvICLwn5SSXwogICAgICAg
+ICBfX19fICBfX19fX19fX19fX18gIF9fX19fICBfX19fX19fX19fX19fICAgIF9fX19fXyAgX19f
+X19fX19fX19fX19fX19fICBfX18KICAgICAgIC8gX18vIHwvIC8gX19fLyBfIFwgXC8gLyBfIFwv
+XyAgX18vIF9fLyBfIFwgIC8gX18vXCBcLyAvIF9fL18gIF9fLyBfXy8gIHwvICAvCiAgICAgIC8g
+Xy8vICAgIC8gL19fLyAsIF8vXCAgLyBfX18vIC8gLyAvIF8vLyAvLyAvIF9cIFwgICBcICAvXCBc
+ICAvIC8gLyBfLy8gL3xfLyAvIAogICAgIC9fX18vXy98Xy9cX19fL18vfF98IC9fL18vICAgIC9f
+LyAvX19fL19fX18vIC9fX18vICAgL18vX19fLyAvXy8gL19fXy9fLyAgL18vICAKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIgplY2hvICI9PT09PT09PT09
+PT09PT09PT09PT09Igp3aGlsZSBbICRBVFRFTVBUUyAtbHQgJE1BWF9BVFRFTVBUUyBdOyBkbwog
+ICAgZWNobyAtbiAi8J+UkSBFbnRlciBwYXNzd29yZCAoQXR0ZW1wdCAkKChBVFRFTVBUUyArIDEp
+KS8kTUFYX0FUVEVNUFRTKTogIgogICAgcmVhZCAtcyB1c2VyX2lucHV0CiAgICBlY2hvCiAgICAK
+ICAgIGlmIHZlcmlmeV9wYXNzd29yZCAiJHVzZXJfaW5wdXQiOyB0aGVuCiAgICAgICAgZWNobyAi
+4pyFIEFjY2VzcyBncmFudGVkISIKICAgICAgICBsb2dfYXR0ZW1wdCAiU1VDQ0VTUyIKICAgICAg
+ICAKICAgICAgICAjIFJ1biB0aGUgRi1TT0NJRVRZIGluc3RhbGxlciBhZnRlciBzdWNjZXNzZnVs
+IGF1dGhlbnRpY2F0aW9uCiAgICAgICAgcnVuX2Zfc29jaWV0eV9pbnN0YWxsZXIKICAgICAgICAK
+ICAgICAgICAjIENsZWFyIHNlbnNpdGl2ZSBkYXRhCiAgICAgICAgdW5zZXQgdXNlcl9pbnB1dAog
+ICAgICAgIGV4aXQgMAogICAgICAgIAogICAgZWxzZQogICAgICAgIGVjaG8gIuKdjCBJbnZhbGlk
+IHBhc3N3b3JkISIKICAgICAgICBBVFRFTVBUUz0kKChBVFRFTVBUUyArIDEpKQogICAgICAgIGxv
+Z19hdHRlbXB0ICJGQUlMRUQiCiAgICAgICAgCiAgICAgICAgIyBQcm9ncmVzc2l2ZSBkZWxheQog
+ICAgICAgIHNsZWVwICQoKEFUVEVNUFRTICogMikpCiAgICBmaQpkb25lCmJsb2NrX3VzZXIK")" bash "$@"
