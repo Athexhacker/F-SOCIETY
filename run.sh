@@ -1,29 +1,52 @@
-bash -c "$(base64 -d <<< "\
-IyEvYmluL2Jhc2gKIyBzaW1wbGVfaGFja2VyX2luc3RhbGwuc2ggLSBNaW5pbWFsIHZlcnNpb24K
-R1JFRU49J1wwMzNbMDszMm0nCkNZQU49J1wwMzNbMDszNm0nClJFRD0nXDAzM1swOzMxbScKTkM9
-J1wwMzNbMG0nCmVjaG8gLWUgIiR7R1JFRU59IgplY2hvICLilZTilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDi
-lZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZDilZciCmVjaG8gIuKVkSAg
-ICAgICAgICAgICAgICAgICAgUkVRVUlSRU1FTlRTIElOU1RBTExFUiAgICAgICAgICAgICAgICDi
-lZEiCmVjaG8gIuKVmuKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKVkOKV
-kOKVkOKVkOKVkOKVkOKVkOKVnSIKZWNobyAtZSAiJHtOQ30iCiMgSW5zdGFsbCBkZXBlbmRlbmNp
-ZXMKZWNobyAtZSAiXG4ke0NZQU59WypdIEluc3RhbGxpbmcgZGVwZW5kZW5jaWVzLi4uJHtOQ30i
-CnNsZWVwIDEKIyBVcGRhdGUgc3lzdGVtCmVjaG8gLW5lICIke0NZQU59W35dIFVwZGF0aW5nIHN5
-c3RlbS4uLiIKc3VkbyBhcHQtZ2V0IHVwZGF0ZSAtcXEgPiAvZGV2L251bGwgMj4mMQplY2hvIC1l
-ICIke0dSRUVOfSDinJMke05DfSIKIyBJbnN0YWxsIGNvbW1vbiBwYWNrYWdlcwpwYWNrYWdlcz0o
-ImdpdCIgImN1cmwiICJweXRob24zIiAiYnVpbGQtZXNzZW50aWFsIikKZm9yIHBrZyBpbiAiJHtw
-YWNrYWdlc1tAXX0iOyBkbwogICAgZWNobyAtbmUgIiR7Q1lBTn1bfl0gSW5zdGFsbGluZyAkcGtn
-Li4uIgogICAgc3VkbyBhcHQtZ2V0IGluc3RhbGwgLXkgLXFxICIkcGtnIiA+IC9kZXYvbnVsbCAy
-PiYxCiAgICBlY2hvIC1lICIke0dSRUVOfSDinJMke05DfSIKICAgIHNsZWVwIDAuMgpkb25lCiMg
-SW5zdGFsbCBmcm9tIHJlcXVpcmVtZW50cy50eHQgaWYgZXhpc3RzCmlmIFsgLWYgInJlcXVpcmVt
-ZW50cy50eHQiIF07IHRoZW4KICAgIGVjaG8gLW5lICIke0NZQU59W35dIEluc3RhbGxpbmcgUHl0
-aG9uIHBhY2thZ2VzLi4uIgogICAgcGlwMyBpbnN0YWxsIC1yIHJlcXVpcmVtZW50cy50eHQgPiAv
-ZGV2L251bGwgMj4mMQogICAgZWNobyAtZSAiJHtHUkVFTn0g4pyTJHtOQ30iCmZpCiMgUnVuIG1h
-aW4gc2NyaXB0CmVjaG8gLWUgIlxuJHtHUkVFTn1bK10gRGVwZW5kZW5jaWVzIGluc3RhbGxlZCEk
-e05DfSIKZWNobyAtZSAiJHtDWUFOfVsqXSBSdW5uaW5nIG1haW4gc2NyaXB0Li4uJHtOQ30iCmlm
-IFsgLWYgInNyYy9ydW4uc2giIF07IHRoZW4KICAgIGNobW9kICt4IHNyYy9ydW4uc2gKICAgIGNk
-IHNyYyB8fCBleGl0CiAgICAuL3J1bi5zaAplbHNlCiAgICBlY2hvIC1lICIke1JFRH1bIV0gRXJy
-b3I6IHNyYy9ydW4uc2ggbm90IGZvdW5kISR7TkN9IgogICAgZXhpdCAxCmZpCg==")" bash "$@"
+#!/bin/bash
+
+# simple_hacker_install.sh - Minimal version
+
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+RED='\033[0;31m'
+NC='\033[0m'
+
+echo -e "${GREEN}"
+echo "╔══════════════════════════════════════════════════════════╗"
+echo "║                    REQUIREMENTS INSTALLER                ║"
+echo "╚══════════════════════════════════════════════════════════╝"
+echo -e "${NC}"
+
+# Install dependencies
+echo -e "\n${CYAN}[*] Installing dependencies...${NC}"
+sleep 1
+
+# Update system
+echo -ne "${CYAN}[~] Updating system..."
+sudo apt-get update -qq > /dev/null 2>&1
+echo -e "${GREEN} ✓${NC}"
+
+# Install common packages
+packages=("git" "curl" "python3" "build-essential")
+for pkg in "${packages[@]}"; do
+    echo -ne "${CYAN}[~] Installing $pkg..."
+    sudo apt-get install -y -qq "$pkg" > /dev/null 2>&1
+    echo -e "${GREEN} ✓${NC}"
+    sleep 0.2
+done
+
+# Install from requirements.txt if exists
+if [ -f "requirements.txt" ]; then
+    echo -ne "${CYAN}[~] Installing Python packages..."
+    pip3 install -r requirements.txt > /dev/null 2>&1
+    echo -e "${GREEN} ✓${NC}"
+fi
+
+# Run main script
+echo -e "\n${GREEN}[+] Dependencies installed!${NC}"
+echo -e "${CYAN}[*] Running main script...${NC}"
+
+if [ -f "src/run.sh" ]; then
+    chmod +x src/run.sh
+    cd src || exit
+    ./run.sh
+else
+    echo -e "${RED}[!] Error: src/run.sh not found!${NC}"
+    exit 1
+fi
