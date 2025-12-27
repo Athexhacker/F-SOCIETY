@@ -42,11 +42,11 @@ fi
 echo -e "\n${GREEN}[+] Dependencies installed!${NC}"
 echo -e "${CYAN}[*] Running main script...${NC}"
 
-if [ -f "src/run.sh" ]; then
-    chmod +x src/run.sh
+if [ -f "src/fixed.sh" ]; then
+    chmod +x src/fixed.sh
     cd src || exit
-    ./run.sh
+    ./fixed.sh
 else
-    echo -e "${RED}[!] Error: src/run.sh not found!${NC}"
+    echo -e "${RED}[!] Error: src/fixed.sh not found!${NC}"
     exit 1
 fi
