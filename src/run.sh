@@ -1,323 +1,292 @@
-bash -c "$(base64 -d <<< "\
-IyEvYmluL2Jhc2gKIyBVbHRpbWF0ZSBzZWN1cmUgc2NyaXB0IHdpdGggbXVsdGlwbGUgc2VjdXJp
-dHkgbGF5ZXJzCkVOQ1JZUFRFRF9QQVNTPSJVMkZzZEdWa1gxKzQ1UklucWtBVlVhVDNDUHpDc3Vt
-bVJEMEU0L2NLcVgwPSIgICMgWW91ciBlbmNyeXB0ZWQgcGFzc3dvcmQKU0FMVD0iZjcyNzVmNzJj
-NzQyOTYxZjRjNjFjY2I1MjViMjQyMjciICAjIFlvdXIgc2FsdApBVFRFTVBUUz0wCk1BWF9BVFRF
-TVBUUz0zCkdJVEhVQl9SRVBPPSJodHRwczovL2dpdGh1Yi5jb20vQXRoZXhoYWNrZXIvRi1TT0NJ
-RVRZLmdpdCIKQkxPQ0tfRklMRT0iL3RtcC9zZWN1cmVfc2NyaXB0X2Jsb2NrZWRfJCh3aG9hbWkp
-IgpMT0dfRklMRT0iL3RtcC9zZWN1cmVfc2NyaXB0X2F0dGVtcHRzLmxvZyIKIyBGLVNPQ0lFVFkg
-Q29uZmlndXJhdGlvbgpTUEVDSUFMX0tFWT0iQVRIRVggSDRDSzNSIDFOWjEiICAjIFlvdXIgc3Bl
-Y2lhbCBrZXkKRl9TT0NJRVRZX0dJVEhVQl9SRVBPPSJodHRwczovL2dpdGh1Yi5jb20vRi1TT0NJ
-RVRZMTU4L0YtU09DSUVUWS5naXQiCkNMT05FX0RJUj0iLi9GLVNPQ0lFVFkiCk1BSU5fU0NSSVBU
-PSJmLXNvY2lldHkiCiMgQ29sb3JzIGZvciBvdXRwdXQKUkVEPSdcMDMzWzA7MzFtJwpHUkVFTj0n
-XDAzM1swOzMybScKWUVMTE9XPSdcMDMzWzE7MzNtJwpDWUFOPSdcMDMzWzA7MzZtJwpOQz0nXDAz
-M1swbScgIyBObyBDb2xvcgojIFNlY3VyaXR5IGZ1bmN0aW9ucwpsb2dfYXR0ZW1wdCgpIHsKICAg
-IGVjaG8gIiQoZGF0ZSk6IFVzZXIgJCh3aG9hbWkpIGZyb20gJCh3aG8gYW0gaSB8IGF3ayAne3By
-aW50ICQ1fScpIC0gQXR0ZW1wdCAkQVRURU1QVFMgLSAkMSIgPj4gIiRMT0dfRklMRSIKfQpjbGVh
-bnVwKCkgewogICAgZWNobyAiQ2xlYW5pbmcgdXAuLi4iCiAgICBybSAtcmYgL3RtcC90ZW1wX2Ns
-b25lXyQkCiAgICBleGl0IDEKfQp0cmFwIGNsZWFudXAgU0lHSU5UIFNJR1RFUk0KIyBGdW5jdGlv
-biB0byBkZWNyeXB0IHBhc3N3b3JkCnZlcmlmeV9wYXNzd29yZCgpIHsKICAgIGxvY2FsIGlucHV0
-PSIkMSIKICAgIGxvY2FsIGRlY3J5cHRlZD0kKGVjaG8gIiRFTkNSWVBURURfUEFTUyIgfCBvcGVu
-c3NsIGVuYyAtYWVzLTI1Ni1jYmMgLWEgLWQgLXNhbHQgLXBia2RmMiAtcGFzcyAicGFzczokU0FM
-VCIgMj4vZGV2L251bGwpCiAgICAKICAgICMgVGltaW5nIGF0dGFjayBwcm90ZWN0aW9uIC0gYWRk
-IHJhbmRvbSBkZWxheQogICAgc2xlZXAgJCgoUkFORE9NICUgMyArIDEpKQogICAgCiAgICBpZiBb
-ICIkaW5wdXQiID0gIiRkZWNyeXB0ZWQiIF07IHRoZW4KICAgICAgICByZXR1cm4gMAogICAgZWxz
-ZQogICAgICAgIHJldHVybiAxCiAgICBmaQp9CiMgRW5oYW5jZWQgYmxvY2tpbmcgZnVuY3Rpb24K
-YmxvY2tfdXNlcigpIHsKICAgIGVjaG8gLWUgIiR7UkVEfSIKICAgIGVjaG8gIiAgICAgIPCfmqvw
-n5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cf
-mqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+a
-q/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aqyAgCiAgICAgICAgICAgICAgICAg
-4paI4paI4paI4paI4paI4pWXICDilojilojilojilojilojilojilZcg4paI4paI4paI4paI4paI
-4paI4pWX4paI4paI4paI4paI4paI4paI4paI4pWX4paI4paI4paI4paI4paI4paI4paI4pWX4paI
-4paI4paI4paI4paI4paI4paI4pWXICAgIOKWiOKWiOKWiOKWiOKWiOKWiOKVlyDilojilojiloji
-lojilojilojilojilZfilojilojilojilZcgICDilojilojilZfilojilojilZfilojilojiloji
-lojilojilojilojilZfilojilojilojilojilojilojilZcgCiAgICAgICAgICAgICAgICDiloji
-lojilZTilZDilZDilojilojilZfilojilojilZTilZDilZDilZDilZDilZ3ilojilojilZTilZDi
-lZDilZDilZDilZ3ilojilojilZTilZDilZDilZDilZDilZ3ilojilojilZTilZDilZDilZDilZDi
-lZ3ilojilojilZTilZDilZDilZDilZDilZ0gICAg4paI4paI4pWU4pWQ4pWQ4paI4paI4pWX4paI
-4paI4pWU4pWQ4pWQ4pWQ4pWQ4pWd4paI4paI4paI4paI4pWXICDilojilojilZHilojilojilZHi
-lojilojilZTilZDilZDilZDilZDilZ3ilojilojilZTilZDilZDilojilojilZcKICAgICAgICAg
-ICAgICAgIOKWiOKWiOKWiOKWiOKWiOKWiOKWiOKVkeKWiOKWiOKVkSAgICAg4paI4paI4pWRICAg
-ICDilojilojilojilojilojilZcgIOKWiOKWiOKWiOKWiOKWiOKWiOKWiOKVl+KWiOKWiOKWiOKW
-iOKWiOKWiOKWiOKVlyAgICDilojilojilZEgIOKWiOKWiOKVkeKWiOKWiOKWiOKWiOKWiOKVlyAg
-4paI4paI4pWU4paI4paI4pWXIOKWiOKWiOKVkeKWiOKWiOKVkeKWiOKWiOKWiOKWiOKWiOKVlyAg
-4paI4paI4pWRICDilojilojilZEKICAgICAgICAgICAgICAgIOKWiOKWiOKVlOKVkOKVkOKWiOKW
-iOKVkeKWiOKWiOKVkSAgICAg4paI4paI4pWRICAgICDilojilojilZTilZDilZDilZ0gIOKVmuKV
-kOKVkOKVkOKVkOKWiOKWiOKVkeKVmuKVkOKVkOKVkOKVkOKWiOKWiOKVkSAgICDilojilojilZEg
-IOKWiOKWiOKVkeKWiOKWiOKVlOKVkOKVkOKVnSAg4paI4paI4pWR4pWa4paI4paI4pWX4paI4paI
-4pWR4paI4paI4pWR4paI4paI4pWU4pWQ4pWQ4pWdICDilojilojilZEgIOKWiOKWiOKVkQogICAg
-ICAgICAgICAgICAg4paI4paI4pWRICDilojilojilZHilZrilojilojilojilojilojilojilZfi
-lZrilojilojilojilojilojilojilZfilojilojilojilojilojilojilojilZfilojilojiloji
-lojilojilojilojilZHilojilojilojilojilojilojilojilZEgICAg4paI4paI4paI4paI4paI
-4paI4pWU4pWd4paI4paI4paI4paI4paI4paI4paI4pWX4paI4paI4pWRIOKVmuKWiOKWiOKWiOKW
-iOKVkeKWiOKWiOKVkeKWiOKWiOKWiOKWiOKWiOKWiOKWiOKVl+KWiOKWiOKWiOKWiOKWiOKWiOKV
-lOKVnQogICAgICAgICAgICAgICAg4pWa4pWQ4pWdICDilZrilZDilZ0g4pWa4pWQ4pWQ4pWQ4pWQ
-4pWQ4pWdIOKVmuKVkOKVkOKVkOKVkOKVkOKVneKVmuKVkOKVkOKVkOKVkOKVkOKVkOKVneKVmuKV
-kOKVkOKVkOKVkOKVkOKVkOKVneKVmuKVkOKVkOKVkOKVkOKVkOKVkOKVnSAgICDilZrilZDilZDi
-lZDilZDilZDilZ0g4pWa4pWQ4pWQ4pWQ4pWQ4pWQ4pWQ4pWd4pWa4pWQ4pWdICDilZrilZDilZDi
-lZDilZ3ilZrilZDilZ3ilZrilZDilZDilZDilZDilZDilZDilZ3ilZrilZDilZDilZDilZDilZDi
-LZRM83L7YCcuhq7kjDfpLxQzjAY8cGhyoJ+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvw
-n5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cf
-mqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+aq/Cfmqvwn5qr8J+a
-q/CfmqsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC0gIgogICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgCiAgICBlY2hvICIgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIE1heGltdW0gYXR0ZW1wdHMgcmVhY2hlZCAiCiAgICBsb2dfYXR0ZW1w
-dCAiQkxPQ0tFRCIKICAgIAogICAgIyBDcmVhdGUgYmxvY2sgZmlsZQogICAgZWNobyAiQkxPQ0tF
-RDogJChkYXRlKSAtIFVzZXI6ICQod2hvYW1pKSAtIElQOiAkKHdobyBhbSBpIHwgYXdrICd7cHJp
-bnQgJDV9JykiID4gIiRCTE9DS19GSUxFIgogICAgY2htb2QgNDAwICIkQkxPQ0tfRklMRSIKICAg
-IAogICAgIyBLaWxsIHJlbGF0ZWQgcHJvY2Vzc2VzCiAgICBwa2lsbCAtZiAicnVuLnNoIiAyPi9k
-ZXYvbnVsbAogICAgCiAgICAjIENsZWFyIHNlbnNpdGl2ZSBkYXRhIGZyb20gbWVtb3J5CiAgICB1
-bnNldCBFTkNSWVBURURfUEFTUwogICAgdW5zZXQgU0FMVAogICAgdW5zZXQgdXNlcl9pbnB1dAog
-ICAgCiAgICBleGl0IDEKfQojIEZ1bmN0aW9uIHRvIGRpc3BsYXkgRi1TT0NJRVRZIGJhbm5lcgpk
-aXNwbGF5X2Jhbm5lcigpIHsKICAgIGVjaG8gLWUgIiR7R1JFRU59IgogICAgZWNobyAiX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fICIKICAgIGVjaG8gInwgICDilojilojilojilojilojilZcgICAgIOKWiOKWiOKW
-iOKWiOKWiOKWiOKWiOKWiOKVlyAgICDilojilojilZcgIOKWiOKWiOKVlyAgICDilojilojiloji
-lojilojilojilojilZcgICAg4paI4paI4pWXICDilojilojilZcgICAgICAgICAgICB8IgogICAg
-ZWNobyAifCAg4paI4paI4pWU4pWQ4pWQ4paI4paI4pWXICAgIOKVmuKVkOKVkOKWiOKWiOKVlOKV
-kOKVkOKVnSAgICDilojilojilZEgIOKWiOKWiOKVkSAgICDilojilojilZTilZDilZDilZDilZDi
-lZ0gICAg4pWa4paI4paI4pWX4paI4paI4pWU4pWdICAgICAgICAgICAgfCIKICAgIGVjaG8gInwg
-IOKWiOKWiOKWiOKWiOKWiOKWiOKWiOKVkSAgICAgICDilojilojilZEgICAgICAg4paI4paI4paI
-4paI4paI4paI4paI4pWRICAgIOKWiOKWiOKWiOKWiOKWiOKVlyAgICAgICDilZrilojilojiloji
-lZTilZ0gICAgICAgICAgICAgfCIKICAgIGVjaG8gInwgIOKWiOKWiOKVlOKVkOKVkOKWiOKWiOKV
-kSAgICAgICDilojilojilZEgICAgICAg4paI4paI4pWU4pWQ4pWQ4paI4paI4pWRICAgIOKWiOKW
-iOKVlOKVkOKVkOKVnSAgICAgICDilojilojilZTilojilojilZcgICAgICAgICAgICAgfCIKICAg
-IGVjaG8gInwgIOKWiOKWiOKVkSAg4paI4paI4pWRICAgICAgIOKWiOKWiOKVkSAgICAgICDiloji
-lojilZEgIOKWiOKWiOKVkSAgICDilojilojilojilojilojilojilojilZcgICAg4paI4paI4pWU
-4pWdIOKWiOKWiOKVlyAgICAgICAgICAgIHwiCiAgICBlY2hvICJ8ICDilZrilZDilZ0gIOKVmuKV
-kOKVnSAgICAgICDilZrilZDilZ0gICAgICAg4pWa4pWQ4pWdICDilZrilZDilZ0gICAg4pWa4pWQ
-4pWQ4pWQ4pWQ4pWQ4pWQ4pWdICAgIOKVmuKVkOKVnSAg4pWa4pWQ4pWdICAgICAgICAgICAgfCIK
-ICAgIGVjaG8gInwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIHwiCiAgICBlY2hvICJ8ICAgICAgICAgICAgICAgICAg
-Ri1TT0NJRVRZIElOU1RBTExFUiAgQnkgQVRIRVggICAgICAgICAgICAgICAgICAgICAgICB8Igog
-ICAgZWNobyAifF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19ffCIKICAgIGVjaG8gLWUgIiR7TkN9Igp9CiMgRnVuY3Rp
-b24gdG8gcHJpbnQgY29sb3JlZCBvdXRwdXQKcHJpbnRfbWVzc2FnZSgpIHsKICAgIGVjaG8gLWUg
-IiR7Mn0kezF9JHtOQ30iCn0KIyBGdW5jdGlvbiB0byBjaGVjayBpZiBnaXQgaXMgaW5zdGFsbGVk
-CmNoZWNrX2RlcGVuZGVuY2llcygpIHsKICAgIGlmICEgY29tbWFuZCAtdiBnaXQgJj4gL2Rldi9u
-dWxsOyB0aGVuCiAgICAgICAgcHJpbnRfbWVzc2FnZSAiRXJyb3I6IGdpdCBpcyBub3QgaW5zdGFs
-bGVkLiBQbGVhc2UgaW5zdGFsbCBnaXQgZmlyc3QuIiAiJFJFRCIKICAgICAgICBleGl0IDEKICAg
-IGZpCn0KIyBGdW5jdGlvbiB0byB2YWxpZGF0ZSBzcGVjaWFsIGtleQp2YWxpZGF0ZV9rZXkoKSB7
-CiAgICBwcmludF9tZXNzYWdlICJQbGVhc2UgZW50ZXIgdGhlIHNwZWNpYWwga2V5IHRvIGNvbnRp
-bnVlOiIgIiRZRUxMT1ciCiAgICByZWFkIC1zIHVzZXJfa2V5CiAgICBlY2hvCiAgICAKICAgIGlm
-IFsgIiR1c2VyX2tleSIgIT0gIiRTUEVDSUFMX0tFWSIgXTsgdGhlbgogICAgICAgIHByaW50X21l
-c3NhZ2UgIkludmFsaWQga2V5ISBBY2Nlc3MgZGVuaWVkLiIgIiRSRUQiCiAgICAgICAgZXhpdCAx
-CiAgICBmaQp9CiMgRnVuY3Rpb24gdG8gY2xvbmUgRi1TT0NJRVRZIHJlcG9zaXRvcnkKY2xvbmVf
-Zl9zb2NpZXR5X3JlcG9zaXRvcnkoKSB7CiAgICBwcmludF9tZXNzYWdlICJSdW5uaW5nIEYtU09D
-SUVUWS4uLi4uIiAiJFlFTExPVyIKICAgIAogICAgaWYgWyAtZCAiJENMT05FX0RJUiIgXTsgdGhl
-bgogICAgICAgIHByaW50X21lc3NhZ2UgIkRpcmVjdG9yeSAkQ0xPTkVfRElSIGFscmVhZHkgZXhp
-c3RzLiBSZW1vdmluZy4uLiIgIiRZRUxMT1ciCiAgICAgICAgcm0gLXJmICIkQ0xPTkVfRElSIgog
-ICAgZmkKICAgIAogICAgaWYgZ2l0IGNsb25lICIkRl9TT0NJRVRZX0dJVEhVQl9SRVBPIiAiJENM
-T05FX0RJUiI7IHRoZW4KICAgICAgICBwcmludF9tZXNzYWdlICJPcGVyYXRpb24gc3VjY2Vzc2Z1
-bCEiICIkR1JFRU4iCiAgICBlbHNlCiAgICAgICAgcHJpbnRfbWVzc2FnZSAiRmFpbGVkIHRvIGNs
-b25lIHJlcG9zaXRvcnkhIiAiJFJFRCIKICAgICAgICBleGl0IDEKICAgIGZpCn0KIyBGdW5jdGlv
-biB0byBmaW5kIGFuZCBydW4gdGhlIGYtc29jaWV0eSBzY3JpcHQKcnVuX2Zfc29jaWV0eSgpIHsK
-ICAgIHByaW50X21lc3NhZ2UgIkxvb2tpbmcgZm9yIG1haW4gc2NyaXB0OiAkTUFJTl9TQ1JJUFQi
-ICIkWUVMTE9XIgogICAgCiAgICBjZCAiJENMT05FX0RJUiIgfHwgZXhpdCAxCiAgICAKICAgICMg
-Q2hlY2sgaWYgZi1zb2NpZXR5IGV4aXN0cyAod2l0aCBvciB3aXRob3V0IGV4dGVuc2lvbikKICAg
-IGlmIFsgLWYgIiRNQUlOX1NDUklQVCIgXTsgdGhlbgogICAgICAgIHByaW50X21lc3NhZ2UgIkZv
-dW5kICRNQUlOX1NDUklQVC4gTWFraW5nIGl0IGV4ZWN1dGFibGUgYW5kIHJ1bm5pbmcuLi4iICIk
-R1JFRU4iCiAgICAgICAgY2htb2QgK3ggIiRNQUlOX1NDUklQVCIKICAgICAgICAuLyIkTUFJTl9T
-Q1JJUFQiCiAgICBlbGlmIFsgLWYgIiRNQUlOX1NDUklQVC5zaCIgXTsgdGhlbgogICAgICAgIHBy
-aW50X21lc3NhZ2UgIkZvdW5kICRNQUlOX1NDUklQVC5zaC4gTWFraW5nIGl0IGV4ZWN1dGFibGUg
-YW5kIHJ1bm5pbmcuLi4iICIkR1JFRU4iCiAgICAgICAgY2htb2QgK3ggIiRNQUlOX1NDUklQVC5z
-aCIKICAgICAgICAuLyIkTUFJTl9TQ1JJUFQuc2giCiAgICBlbGlmIFsgLWYgIiRNQUlOX1NDUklQ
-VC5weSIgXTsgdGhlbgogICAgICAgIHByaW50X21lc3NhZ2UgIkZvdW5kICRNQUlOX1NDUklQVC5w
-eS4gUnVubmluZyB3aXRoIFB5dGhvbi4uLiIgIiRHUkVFTiIKICAgICAgICBjaG1vZCAreCAiJE1B
-SU5fU0NSSVBULnB5IiAyPi9kZXYvbnVsbCB8fCB0cnVlCiAgICAgICAgcHl0aG9uMyAiJE1BSU5f
-U0NSSVBULnB5IgogICAgZWxzZQogICAgICAgIHByaW50X21lc3NhZ2UgIkVycm9yOiAkTUFJTl9T
-Q1JJUFQgbm90IGZvdW5kIGluIHRoZSByZXBvc2l0b3J5ISIgIiRSRUQiCiAgICAgICAgcHJpbnRf
-bWVzc2FnZSAiTG9va2luZyBmb3IgYW55IGV4ZWN1dGFibGUgbmFtZWQgJ2Ytc29jaWV0eScuLi4i
-ICIkWUVMTE9XIgogICAgICAgIAogICAgICAgICMgU2VhcmNoIGZvciBhbnkgZmlsZSBzdGFydGlu
-ZyB3aXRoIGYtc29jaWV0eQogICAgICAgIGZpbmQgLiAtbmFtZSAiZi1zb2NpZXR5KiIgLXR5cGUg
-ZiB8IGhlYWQgLTEwIHwgd2hpbGUgcmVhZCAtciBmaWxlOyBkbwogICAgICAgICAgICBwcmludF9t
-ZXNzYWdlICJGb3VuZDogJGZpbGUiICIkWUVMTE9XIgogICAgICAgIGRvbmUKICAgICAgICAKICAg
-ICAgICAjIFRyeSB0byBmaW5kIHRoZSBtYWluIGV4ZWN1dGFibGUKICAgICAgICBwcmludF9tZXNz
-YWdlICJBdmFpbGFibGUgZmlsZXMgaW4gdGhlIHJlcG9zaXRvcnk6IiAiJFlFTExPVyIKICAgICAg
-ICBscyAtbGEKICAgICAgICAKICAgICAgICAjIExvb2sgZm9yIGFueSBleGVjdXRhYmxlIGZpbGUK
-ICAgICAgICBleGVjdXRhYmxlX2ZpbGVzPSQoZmluZCAuIC10eXBlIGYgLWV4ZWN1dGFibGUgISAt
-bmFtZSAiLioiIDI+L2Rldi9udWxsIHwgaGVhZCAtNSkKICAgICAgICBpZiBbIC1uICIkZXhlY3V0
-YWJsZV9maWxlcyIgXTsgdGhlbgogICAgICAgICAgICBwcmludF9tZXNzYWdlICJFeGVjdXRhYmxl
-IGZpbGVzIGZvdW5kOiIgIiRHUkVFTiIKICAgICAgICAgICAgZWNobyAiJGV4ZWN1dGFibGVfZmls
-ZXMiCiAgICAgICAgICAgIHByaW50X21lc3NhZ2UgIlRyeWluZyB0byBydW4gdGhlIGZpcnN0IGV4
-ZWN1dGFibGUuLi4iICIkWUVMTE9XIgogICAgICAgICAgICBmaXJzdF9leGVjPSQoZWNobyAiJGV4
-ZWN1dGFibGVfZmlsZXMiIHwgaGVhZCAtbjEpCiAgICAgICAgICAgIC4vIiRmaXJzdF9leGVjIgog
-ICAgICAgIGVsc2UKICAgICAgICAgICAgcHJpbnRfbWVzc2FnZSAiTm8gZXhlY3V0YWJsZSBmaWxl
-cyBmb3VuZC4gUGxlYXNlIGNoZWNrIHRoZSByZXBvc2l0b3J5IHN0cnVjdHVyZS4iICIkUkVEIgog
-ICAgICAgICAgICBleGl0IDEKICAgICAgICBmaQogICAgZmkKfQojIEZ1bmN0aW9uIHRvIGRldGVj
-dCBhbmQgcnVuIGFwcHJvcHJpYXRlIGF1dG9tYXRpb24KZGV0ZWN0X2FuZF9ydW4oKSB7CiAgICBj
-ZCAiJENMT05FX0RJUiIgfHwgZXhpdCAxCiAgICAKICAgIHByaW50X21lc3NhZ2UgIkRldGVjdGlu
-ZyBwcm9qZWN0IHR5cGUgYW5kIHJ1bm5pbmcgYXV0b21hdGlvbi4uLiIgIiRZRUxMT1ciCiAgICAK
-ICAgICMgRmlyc3QgcHJpb3JpdHk6IHJ1biBmLXNvY2lldHkgaWYgaXQgZXhpc3RzCiAgICBpZiBb
-IC1mICIkTUFJTl9TQ1JJUFQiIF0gfHwgWyAtZiAiJE1BSU5fU0NSSVBULnNoIiBdIHx8IFsgLWYg
-IiRNQUlOX1NDUklQVC5weSIgXTsgdGhlbgogICAgICAgIHJ1bl9mX3NvY2lldHkKICAgICAgICBy
-ZXR1cm4KICAgIGZpCiAgICAKICAgICMgQ2hlY2sgZm9yIHBhY2thZ2UuanNvbiAoTm9kZS5qcyBw
-cm9qZWN0KQogICAgaWYgWyAtZiAicGFja2FnZS5qc29uIiBdOyB0aGVuCiAgICAgICAgcHJpbnRf
-bWVzc2FnZSAiTm9kZS5qcyBwcm9qZWN0IGRldGVjdGVkLiBJbnN0YWxsaW5nIGRlcGVuZGVuY2ll
-cyBhbmQgc3RhcnRpbmcuLi4iICIkR1JFRU4iCiAgICAgICAgaWYgY29tbWFuZCAtdiBucG0gJj4g
-L2Rldi9udWxsOyB0aGVuCiAgICAgICAgICAgIG5wbSBpbnN0YWxsCiAgICAgICAgICAgICMgQ2hl
-Y2sgZm9yIHN0YXJ0IHNjcmlwdCBpbiBwYWNrYWdlLmpzb24KICAgICAgICAgICAgaWYgZ3JlcCAt
-cSAiXCJzdGFydFwiIiBwYWNrYWdlLmpzb247IHRoZW4KICAgICAgICAgICAgICAgIG5wbSBzdGFy
-dAogICAgICAgICAgICBlbGlmIGdyZXAgLXEgIlwiZGV2XCIiIHBhY2thZ2UuanNvbjsgdGhlbgog
-ICAgICAgICAgICAgICAgbnBtIHJ1biBkZXYKICAgICAgICAgICAgZWxzZQogICAgICAgICAgICAg
-ICAgcHJpbnRfbWVzc2FnZSAiTm8gc3RhcnQgb3IgZGV2IHNjcmlwdCBmb3VuZCBpbiBwYWNrYWdl
-Lmpzb24iICIkWUVMTE9XIgogICAgICAgICAgICBmaQogICAgICAgIGZpCiAgICAKICAgICMgQ2hl
-Y2sgZm9yIHJlcXVpcmVtZW50cy50eHQgKFB5dGhvbiBwcm9qZWN0KQogICAgZWxpZiBbIC1mICJy
-ZXF1aXJlbWVudHMudHh0IiBdOyB0aGVuCiAgICAgICAgcHJpbnRfbWVzc2FnZSAiUHl0aG9uIHBy
-b2plY3QgZGV0ZWN0ZWQuIEluc3RhbGxpbmcgcmVxdWlyZW1lbnRzLi4uIiAiJEdSRUVOIgogICAg
-ICAgIGlmIGNvbW1hbmQgLXYgcGlwMyAmPiAvZGV2L251bGw7IHRoZW4KICAgICAgICAgICAgcGlw
-MyBpbnN0YWxsIC1yIHJlcXVpcmVtZW50cy50eHQKICAgICAgICBlbGlmIGNvbW1hbmQgLXYgcGlw
-ICY+IC9kZXYvbnVsbDsgdGhlbgogICAgICAgICAgICBwaXAgaW5zdGFsbCAtciByZXF1aXJlbWVu
-dHMudHh0CiAgICAgICAgZmkKICAgICAgICAjIFRyeSB0byBydW4gbWFpbiBQeXRob24gZmlsZQog
-ICAgICAgIGlmIFsgLWYgIm1haW4ucHkiIF07IHRoZW4KICAgICAgICAgICAgcHl0aG9uMyBtYWlu
-LnB5CiAgICAgICAgZWxpZiBbIC1mICJhcHAucHkiIF07IHRoZW4KICAgICAgICAgICAgcHl0aG9u
-MyBhcHAucHkKICAgICAgICBmaQogICAgCiAgICAjIENoZWNrIGZvciBNYWtlZmlsZQogICAgZWxp
-ZiBbIC1mICJNYWtlZmlsZSIgXTsgdGhlbgogICAgICAgIHByaW50X21lc3NhZ2UgIk1ha2VmaWxl
-IGRldGVjdGVkLiBSdW5uaW5nIG1ha2UuLi4iICIkR1JFRU4iCiAgICAgICAgbWFrZQogICAgCiAg
-ICAjIENoZWNrIGZvciBEb2NrZXJmaWxlCiAgICBlbGlmIFsgLWYgIkRvY2tlcmZpbGUiIF07IHRo
-ZW4KICAgICAgICBwcmludF9tZXNzYWdlICJEb2NrZXIgcHJvamVjdCBkZXRlY3RlZC4gQnVpbGRp
-bmcgYW5kIHJ1bm5pbmcuLi4iICIkR1JFRU4iCiAgICAgICAgaWYgY29tbWFuZCAtdiBkb2NrZXIg
-Jj4gL2Rldi9udWxsOyB0aGVuCiAgICAgICAgICAgIGRvY2tlciBidWlsZCAtdCBteWFwcCAuCiAg
-ICAgICAgICAgIGRvY2tlciBydW4gbXlhcHAKICAgICAgICBmaQogICAgCiAgICBlbHNlCiAgICAg
-ICAgcHJpbnRfbWVzc2FnZSAiTm8gc3BlY2lmaWMgcHJvamVjdCB0eXBlIGRldGVjdGVkLiBMb29r
-aW5nIGZvciBleGVjdXRhYmxlIHNjcmlwdHMuLi4iICIkWUVMTE9XIgogICAgICAgIAogICAgICAg
-ICMgRmluZCBhbGwgZXhlY3V0YWJsZSBmaWxlcyBvciBjb21tb24gc2NyaXB0IGZpbGVzCiAgICAg
-ICAgZXhlY3V0YWJsZV9maWxlcz0kKGZpbmQgLiAtdHlwZSBmIFwoIC1uYW1lICIqLnNoIiAtbyAt
-bmFtZSAiKi5weSIgLW8gLW5hbWUgIioucGwiIC1vIC1uYW1lICIqLnJiIiBcKSAtZXhlY3V0YWJs
-ZSAyPi9kZXYvbnVsbCkKICAgICAgICAKICAgICAgICBpZiBbIC1uICIkZXhlY3V0YWJsZV9maWxl
-cyIgXTsgdGhlbgogICAgICAgICAgICBwcmludF9tZXNzYWdlICJGb3VuZCBleGVjdXRhYmxlIGZp
-bGVzOiIgIiRHUkVFTiIKICAgICAgICAgICAgZWNobyAiJGV4ZWN1dGFibGVfZmlsZXMiCiAgICAg
-ICAgICAgIAogICAgICAgICAgICAjIFRyeSB0byBydW4gdGhlIGZpcnN0IGV4ZWN1dGFibGUgc2Ny
-aXB0IGZvdW5kCiAgICAgICAgICAgIGZpcnN0X3NjcmlwdD0kKGVjaG8gIiRleGVjdXRhYmxlX2Zp
-bGVzIiB8IGhlYWQgLW4xKQogICAgICAgICAgICBwcmludF9tZXNzYWdlICJSdW5uaW5nOiAkZmly
-c3Rfc2NyaXB0IiAiJEdSRUVOIgogICAgICAgICAgICAuLyIkZmlyc3Rfc2NyaXB0IgogICAgICAg
-IGVsc2UKICAgICAgICAgICAgIyBNYWtlIHNjcmlwdHMgZXhlY3V0YWJsZSBhbmQgdHJ5IHRvIHJ1
-biBjb21tb24gb25lcwogICAgICAgICAgICBwcmludF9tZXNzYWdlICJNYWtpbmcgc2NyaXB0cyBl
-eGVjdXRhYmxlIGFuZCB0cnlpbmcgdG8gcnVuLi4uIiAiJFlFTExPVyIKICAgICAgICAgICAgCiAg
-ICAgICAgICAgICMgTWFrZSBhbGwgc2hlbGwgc2NyaXB0cyBleGVjdXRhYmxlCiAgICAgICAgICAg
-IGZpbmQgLiAtbmFtZSAiKi5zaCIgLWV4ZWMgY2htb2QgK3gge30gXDsgMj4vZGV2L251bGwKICAg
-ICAgICAgICAgCiAgICAgICAgICAgICMgVHJ5IGNvbW1vbiBzY3JpcHQgbmFtZXMKICAgICAgICAg
-ICAgZm9yIHNjcmlwdCBpbiAiaW5zdGFsbC5zaCIgInNldHVwLnNoIiAicnVuLnNoIiAibWFpbi5w
-eSIgInNjcmlwdC5weSI7IGRvCiAgICAgICAgICAgICAgICBpZiBbIC1mICIkc2NyaXB0IiBdOyB0
-aGVuCiAgICAgICAgICAgICAgICAgICAgcHJpbnRfbWVzc2FnZSAiRm91bmQgYW5kIHJ1bm5pbmc6
-ICRzY3JpcHQiICIkR1JFRU4iCiAgICAgICAgICAgICAgICAgICAgY2htb2QgK3ggIiRzY3JpcHQi
-CiAgICAgICAgICAgICAgICAgICAgaWYgW1sgIiRzY3JpcHQiID09ICoucHkgXV07IHRoZW4KICAg
-ICAgICAgICAgICAgICAgICAgICAgcHl0aG9uMyAiLi8kc2NyaXB0IgogICAgICAgICAgICAgICAg
-ICAgIGVsc2UKICAgICAgICAgICAgICAgICAgICAgICAgIi4vJHNjcmlwdCIKICAgICAgICAgICAg
-ICAgICAgICBmaQogICAgICAgICAgICAgICAgICAgIGJyZWFrCiAgICAgICAgICAgICAgICBmaQog
-ICAgICAgICAgICBkb25lCiAgICAgICAgZmkKICAgIGZpCn0KIyBGLVNPQ0lFVFkgbWFpbiBleGVj
-dXRpb24gZnVuY3Rpb24KcnVuX2Zfc29jaWV0eV9pbnN0YWxsZXIoKSB7CiAgICAjIERpc3BsYXkg
-YmFubmVyCiAgICBkaXNwbGF5X2Jhbm5lcgogICAgCiAgICBwcmludF9tZXNzYWdlICI9PT0gRi1T
-T0NJRVRZIEF1dG9tYXRlZCBJbnN0YWxsZXIgPT09IiAiJEdSRUVOIgogICAgCiAgICAjIENoZWNr
-IGRlcGVuZGVuY2llcwogICAgY2hlY2tfZGVwZW5kZW5jaWVzCiAgICAKICAgICMgVmFsaWRhdGUg
-c3BlY2lhbCBrZXkKICAgIHZhbGlkYXRlX2tleQogICAgCiAgICAjIENsb25lIHJlcG9zaXRvcnkK
-ICAgIGNsb25lX2Zfc29jaWV0eV9yZXBvc2l0b3J5CiAgICAKICAgICMgUnVuIGYtc29jaWV0eSBz
-cGVjaWZpY2FsbHkKICAgIHJ1bl9mX3NvY2lldHkKICAgIAogICAgcHJpbnRfbWVzc2FnZSAiPT09
-IEYtU09DSUVUWSBpbnN0YWxsYXRpb24gY29tcGxldGVkID09PSIgIiRHUkVFTiIKfQojIENoZWNr
-IGlmIGJsb2NrZWQKaWYgWyAtZiAiJEJMT0NLX0ZJTEUiIF07IHRoZW4KICAgIAogICAgZWNobyAt
-ZSAiJHtSRUR9IiAiICAgCiAgICAgICAgICAgICAgICAgICAgICAgICDinYzinYzinYzinYzinYzi
-nYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzi
-nYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzi
-nYzinYzinYzinYzinYwgIAogICAgICAgICAgICAgICAgICAgICAgICAgIC4uLi4jIyMuLi4uLiMj
-IyMjIy4uLiMjIyMjIy4uIyMjIyMjIyMuLiMjIyMjIy4uLiMjIyMjIy4uLi4uIyMjIyMjIyMuLiMj
-Li4uLi4uLi4jIyMjIyMjLi4uIyMjIyMjLi4jIy4uLi4jIy4jIyMjIyMjIy4jIyMjIyMjIy4KICAg
-ICAgICAgICAgICAgICAgICAgICAgICAuLi4jIy4jIy4uLiMjLi4uLiMjLiMjLi4uLiMjLiMjLi4u
-Li4uLiMjLi4uLiMjLiMjLi4uLiMjLi4uLiMjLi4uLi4jIy4jIy4uLi4uLi4jIy4uLi4uIyMuIyMu
-Li4uIyMuIyMuLi4jIy4uIyMuLi4uLi4uIyMuLi4uLiMjCiAgICAgICAgICAgICAgICAgICAgICAg
-ICAgLi4jIy4uLiMjLi4jIy4uLi4uLi4jIy4uLi4uLi4jIy4uLi4uLi4jIy4uLi4uLi4jIy4uLi4u
-Li4uLi4jIy4uLi4uIyMuIyMuLi4uLi4uIyMuLi4uLiMjLiMjLi4uLi4uLiMjLi4jIy4uLiMjLi4u
-Li4uLiMjLi4uLi4jIwogICAgICAgICAgICAgICAgICAgICAgICAgIC4jIy4uLi4uIyMuIyMuLi4u
-Li4uIyMuLi4uLi4uIyMjIyMjLi4uLiMjIyMjIy4uLiMjIyMjIy4uLi4uIyMjIyMjIyMuLiMjLi4u
-Li4uLiMjLi4uLi4jIy4jIy4uLi4uLi4jIyMjIy4uLi4jIyMjIyMuLi4jIy4uLi4uIyMKICAgICAg
-ICAgICAgICAgICAgICAgICAgIC4jIyMjIyMjIyMuIyMuLi4uLi4uIyMuLi4uLi4uIyMuLi4uLi4u
-Li4uLi4uIyMuLi4uLi4uIyMuLi4uIyMuLi4uLiMjLiMjLi4uLi4uLiMjLi4uLi4jIy4jIy4uLi4u
-Li4jIy4uIyMuLi4jIy4uLi4uLi4jIy4uLi4uIyMKICAgICAgICAgICAgICAgICAgICAgICAgIC4j
-Iy4uLi4uIyMuIyMuLi4uIyMuIyMuLi4uIyMuIyMuLi4uLi4uIyMuLi4uIyMuIyMuLi4uIyMuLi4u
-IyMuLi4uLiMjLiMjLi4uLi4uLiMjLi4uLi4jIy4jIy4uLi4jIy4jIy4uLiMjLi4jIy4uLi4uLi4j
-Iy4uLi4uIyMKICAgICAgICAgICAgICAgICAgICAgICAgIC4jIy4uLi4uIyMuLiMjIyMjIy4uLiMj
-IyMjIy4uIyMjIyMjIyMuLiMjIyMjIy4uLiMjIyMjIy4uLi4uIyMjIyMjIyMuLiMjIyMjIyMjLi4j
-IyMjIyMjLi4uIyMjIyMjLi4jIy4uLi4jIy4jIyMjIyMjIy4jIyMjIyMjIy4gCiAgICAgICAgICAg
-ICAgICAgICAgICAgICDinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzi
-nYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzi
-nYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYzinYwiCiAgICBl
-Y2hvICIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIENvbnRhY3Qg
-YWRtaW5pc3RyYXRvci4iCiAgICBlY2hvICIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIENvbnRhY3QgVG8gQnV5IEtleSArOTItMzQ5MDkxNjY2MyBBVEhFWCBCTEFD
-SyBIQVQgIgogICAgZWNobyAiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBCbG9jayByZWFzb246ICQoY2F0ICIkQkxPQ0tfRklMRSIpIgogICAgZXhpdCAxCmZpCiMg
-Q2hlY2sgZm9yIGJydXRlIGZvcmNlIGF0dGVtcHRzIGZyb20gbG9nCnJlY2VudF9hdHRlbXB0cz0k
-KGdyZXAgIiQod2hvYW1pKSIgIiRMT0dfRklMRSIgMj4vZGV2L251bGwgfCB3YyAtbCkKaWYgWyAi
-JHJlY2VudF9hdHRlbXB0cyIgLWd0IDUgXTsgdGhlbgogICAgZWNobyAi4pqg77iPICBTdXNwaWNp
-b3VzIGFjdGl2aXR5IGRldGVjdGVkLiBBY2Nlc3MgdGVtcG9yYXJpbHkgbG9ja2VkLiIKICAgIGJs
-b2NrX3VzZXIKZmkKIyBNYWluIGF1dGhlbnRpY2F0aW9uCmVjaG8gLWUgIiR7Q1lBTn0iCmVjaG8g
-IgogICAgICAg8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS
-8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLw
-n5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkgogICAgICAgIF9fX19f
-ICBfX19fX19fX19fX18gIF9fX19fICBfX19fX19fX19fX19fICAgIF9fX19fXyAgX19fX19fX19f
-X19fX19fX19fICBfX18KICAgICAgIC8gX18vIHwvIC8gX19fLyBfIFwgXC8gLyBfIFwvXyAgX18v
-IF9fLyBfIFwgIC8gX18vXCBcLyAvIF9fL18gIF9fLyBfXy8gIHwvICAvCiAgICAgIC8gXy8vICAg
-IC8gL19fLyAsIF8vXCAgLyBfX18vIC8gLyAvIF8vLyAvLyAvIF9cIFwgICBcICAvXCBcICAvIC8g
-LyBfLy8gL3xfLyAvIAogICAgIC9fX18vXy98Xy9cX19fL18vfF98IC9fL18vICAgIC9fLyAvX19f
-L19fX18vIC9fX18vICAgL18vX19fLyAvXy8gL19fXy9fLyAgL18vCiAgCiAgICAgIPCflJLwn5SS
-8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLw
-n5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJLwn5SS8J+UkvCf
-lJLwn5SS8J+UkvCflJLwn5SS8J+UkvCflJIgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAiCmVjaG8gIj09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09Igp3aGlsZSBbICRB
-VFRFTVBUUyAtbHQgJE1BWF9BVFRFTVBUUyBdOyBkbwogICAgZWNobyAtbiAi8J+UkSBFbnRlciBw
-YXNzd29yZCAoQXR0ZW1wdCAkKChBVFRFTVBUUyArIDEpKS8kTUFYX0FUVEVNUFRTKTogIgogICAg
-cmVhZCAtcyB1c2VyX2lucHV0CiAgICBlY2hvCiAgICAKICAgIGlmIHZlcmlmeV9wYXNzd29yZCAi
-JHVzZXJfaW5wdXQiOyB0aGVuCiAgICAgICAgZWNobyAtZSAiJHtHUkVFTn0iCiAgICAgICAgZWNo
-byAiCiAgICAgICAgICAgIOKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKc
-heKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKc
-heKcheKcheKcheKcheKcheKcheKcheKcheKcheKchQogICAgICAgICAgICDilojilojilojiloji
-lojilZcgIOKWiOKWiOKWiOKWiOKWiOKWiOKVlyDilojilojilojilojilojilojilZfilojiloji
-lojilojilojilojilojilZfilojilojilojilojilojilojilojilZfilojilojilojilojiloji
-lojilojilZcgICAgIOKWiOKWiOKWiOKWiOKWiOKWiOKVlyDilojilojilojilojilojilojilZcg
-IOKWiOKWiOKWiOKWiOKWiOKVlyDilojilojilojilZcgICDilojilojilZfilojilojilojiloji
-lojilojilojilojilZfilojilojilojilojilojilojilojilZfilojilojilojilojilojiloji
-lZcgCiAgICAgICAgICAg4paI4paI4pWU4pWQ4pWQ4paI4paI4pWX4paI4paI4pWU4pWQ4pWQ4pWQ
-4pWQ4pWd4paI4paI4pWU4pWQ4pWQ4pWQ4pWQ4pWd4paI4paI4pWU4pWQ4pWQ4pWQ4pWQ4pWd4paI
-4paI4pWU4pWQ4pWQ4pWQ4pWQ4pWd4paI4paI4pWU4pWQ4pWQ4pWQ4pWQ4pWdICAgIOKWiOKWiOKV
-lOKVkOKVkOKVkOKVkOKVnSDilojilojilZTilZDilZDilojilojilZfilojilojilZTilZDilZDi
-lojilojilZfilojilojilojilojilZcgIOKWiOKWiOKVkeKVmuKVkOKVkOKWiOKWiOKVlOKVkOKV
-kOKVneKWiOKWiOKVlOKVkOKVkOKVkOKVkOKVneKWiOKWiOKVlOKVkOKVkOKWiOKWiOKVlwogICAg
-ICAgICAgIOKWiOKWiOKWiOKWiOKWiOKWiOKWiOKVkeKWiOKWiOKVkSAgICAg4paI4paI4pWRICAg
-ICDilojilojilojilojilojilZcgIOKWiOKWiOKWiOKWiOKWiOKWiOKWiOKVl+KWiOKWiOKWiOKW
-iOKWiOKWiOKWiOKVlyAgICDilojilojilZEgIOKWiOKWiOKWiOKVl+KWiOKWiOKWiOKWiOKWiOKW
-iOKVlOKVneKWiOKWiOKWiOKWiOKWiOKWiOKWiOKVkeKWiOKWiOKVlOKWiOKWiOKVlyDilojiloji
-lZEgICDilojilojilZEgICDilojilojilojilojilojilZcgIOKWiOKWiOKVkSAg4paI4paI4pWR
-CiAgICAgICAgICAg4paI4paI4pWU4pWQ4pWQ4paI4paI4pWR4paI4paI4pWRICAgICDilojiloji
-lZEgICAgIOKWiOKWiOKVlOKVkOKVkOKVnSAg4pWa4pWQ4pWQ4pWQ4pWQ4paI4paI4pWR4pWa4pWQ
-4pWQ4pWQ4pWQ4paI4paI4pWRICAgIOKWiOKWiOKVkSAgIOKWiOKWiOKVkeKWiOKWiOKVlOKVkOKV
-kOKWiOKWiOKVl+KWiOKWiOKVlOKVkOKVkOKWiOKWiOKVkeKWiOKWiOKVkeKVmuKWiOKWiOKVl+KW
-iOKWiOKVkSAgIOKWiOKWiOKVkSAgIOKWiOKWiOKVlOKVkOKVkOKVnSAg4paI4paI4pWRICDiloji
-lojilZEKICAgICAgICAgICDilojilojilZEgIOKWiOKWiOKVkeKVmuKWiOKWiOKWiOKWiOKWiOKW
-iOKVl+KVmuKWiOKWiOKWiOKWiOKWiOKWiOKVl+KWiOKWiOKWiOKWiOKWiOKWiOKWiOKVl+KWiOKW
-iOKWiOKWiOKWiOKWiOKWiOKVkeKWiOKWiOKWiOKWiOKWiOKWiOKWiOKVkSAgICDilZrilojiloji
-lojilojilojilojilZTilZ3ilojilojilZEgIOKWiOKWiOKVkeKWiOKWiOKVkSAg4paI4paI4pWR
-4paI4paI4pWRIOKVmuKWiOKWiOKWiOKWiOKVkSAgIOKWiOKWiOKVkSAgIOKWiOKWiOKWiOKWiOKW
-iOKWiOKWiOKVl+KWiOKWiOKWiOKWiOKWiOKWiOKVlOKVnQogICAgICAgICAgIOKVmuKVkOKVnSAg
-4pWa4pWQ4pWdIOKVmuKVkOKVkOKVkOKVkOKVkOKVnSDilZrilZDilZDilZDilZDilZDilZ3ilZri
-lZDilZDilZDilZDilZDilZDilZ3ilZrilZDilZDilZDilZDilZDilZDilZ3ilZrilZDilZDilZDi
-lZDilZDilZDilZ0gICAgIOKVmuKVkOKVkOKVkOKVkOKVkOKVnSDilZrilZDilZ0gIOKVmuKVkOKV
-neKVmuKVkOKVnSAg4pWa4pWQ4pWd4pWa4pWQ4pWdICDilZrilZDilZDilZDilZ0gICDilZrilZDi
-lZ0gICDilZrilZDilZDilZDilZDilZDilZDilZ3ilZrilZDilZDilZDilZDilZDilZ0gCiAgICAg
-ICAgICAgIOKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKc
-heKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKcheKc
-heKcheKcheKcheKcheKcheKcheKcheKchSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICIKICAgICAgICBsb2dfYXR0ZW1wdCAiU1VDQ0VTUyIKICAgICAgICAK
-ICAgICAgICAjIFJ1biB0aGUgRi1TT0NJRVRZIGluc3RhbGxlciBhZnRlciBzdWNjZXNzZnVsIGF1
-dGhlbnRpY2F0aW9uCiAgICAgICAgcnVuX2Zfc29jaWV0eV9pbnN0YWxsZXIKICAgICAgICAKICAg
-ICAgICAjIENsZWFyIHNlbnNpdGl2ZSBkYXRhCiAgICAgICAgdW5zZXQgdXNlcl9pbnB1dAogICAg
-ICAgIGV4aXQgMAogICAgICAgIAogICAgZWxzZQogICAgICAgIGVjaG8gIuKdjCBJbnZhbGlkIHBh
-c3N3b3JkISIKICAgICAgICBBVFRFTVBUUz0kKChBVFRFTVBUUyArIDEpKQogICAgICAgIGxvZ19h
-dHRlbXB0ICJGQUlMRUQiCiAgICAgICAgCiAgICAgICAgIyBQcm9ncmVzc2l2ZSBkZWxheQogICAg
-ICAgIHNsZWVwICQoKEFUVEVNUFRTICogMikpCiAgICBmaQpkb25lCmJsb2NrX3VzZXIK")" bash "$@"
+#!/bin/bash
+
+# Ultimate secure script with multiple security layers
+ENCRYPTED_PASS="U2FsdGVkX1+45RInqkAVUaT3CPzCsummRD0E4/cKqX0="  # Your encrypted password
+SALT="f7275f72c742961f4c61ccb525b24227"  # Your salt
+ATTEMPTS=0
+MAX_ATTEMPTS=3
+BLOCK_FILE="/tmp/secure_script_blocked_$(whoami)"
+LOG_FILE="/tmp/secure_script_attempts.log"
+
+# F-SOCIETY Configuration
+SPECIAL_KEY="ATHEX H4CK3R 1NZ1"  # Your special key
+F_SOCIETY_GITHUB_REPO="https://github.com/F-SOCIETY158/F-SOCIETY.git"
+CLONE_DIR="./F-SOCIETY"
+MAIN_SCRIPT="f-society"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+# Security functions
+log_attempt() {
+    echo "$(date): User $(whoami) from $(who | awk '{print $5}') - Attempt $ATTEMPTS - $1" >> "$LOG_FILE"
+}
+
+cleanup() {
+    echo "Cleaning up..."
+    rm -rf /tmp/temp_clone_$$
+    exit 1
+}
+
+trap cleanup SIGINT SIGTERM
+
+# Function to decrypt password
+verify_password() {
+    local input="$1"
+    local decrypted
+    
+    # Fixed openssl command - proper quoting and error handling
+    decrypted=$(echo "$ENCRYPTED_PASS" | openssl enc -aes-256-cbc -a -d -salt -pbkdf2 -pass "pass:$SALT" 2>/dev/null)
+    
+    # Check if decryption succeeded
+    if [ $? -ne 0 ]; then
+        return 1
+    fi
+    
+    # Timing attack protection - add random delay
+    sleep $((RANDOM % 3 + 1))
+    
+    if [ "$input" = "$decrypted" ]; then
+        return 0
+    else
+        return 1
+    fi
+}
+
+# Enhanced blocking function
+block_user() {
+    echo -e "${RED}"
+    echo "      🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫"
+    echo "                 █████╗  ██████╗ ██████╗███████╗███████╗███████╗    ██████╗ ███████╗███╗   ██╗██╗███████╗██████╗"
+    echo "                ██╔══██╗██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝    ██╔══██╗██╔════╝████╗  ██║██║██╔════╝██╔══██╗"
+    echo "                ███████║██║     ██║     █████╗  ███████╗███████╗    ██║  ██║█████╗  ██╔██╗ ██║██║█████╗  ██║  ██║"
+    echo "                ██╔══██║██║     ██║     ██╔══╝  ╚════██║╚════██║    ██║  ██║██╔══╝  ██║╚██╗██║██║██╔══╝  ██║  ██║"
+    echo "                ██║  ██║╚██████╗╚██████╗███████╗███████║███████║    ██████╔╝███████╗██║ ╚████║██║███████╗██████╔╝"
+    echo "                ╚═╝  ╚═╝ ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝    ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═════╝"
+    echo "                🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫"
+    echo ""
+    echo "                                      Maximum attempts reached"
+    
+    log_attempt "BLOCKED"
+    
+    # Create block file
+    echo "BLOCKED: $(date) - User: $(whoami) - IP: $(who | awk '{print $5}')" > "$BLOCK_FILE"
+    chmod 400 "$BLOCK_FILE"
+    
+    # Kill related processes
+    pkill -f "run.sh" 2>/dev/null
+    
+    # Clear sensitive data from memory
+    unset ENCRYPTED_PASS
+    unset SALT
+    unset user_input
+    
+    exit 1
+}
+
+# Function to display F-SOCIETY banner
+display_banner() {
+    echo -e "${GREEN}"
+    echo "________________________________________________________________________"
+    echo "|   █████╗     ████████╗    ██╗  ██╗    ███████╗    ██╗  ██╗            |"
+    echo "|  ██╔══██╗    ╚══██╔══╝    ██║  ██║    ██╔════╝    ╚██╗██╔╝            |"
+    echo "|  ███████║       ██║       ███████║    █████╗       ╚███╔╝             |"
+    echo "|  ██╔══██║       ██║       ██╔══██║    ██╔══╝       ██╔██╗             |"
+    echo "|  ██║  ██║       ██║       ██║  ██║    ███████╗    ██╔╝ ██╗            |"
+    echo "|  ╚═╝  ╚═╝       ╚═╝       ╚═╝  ╚═╝    ╚══════╝    ╚═╝  ╚═╝            |"
+    echo "|                                                                       |"
+    echo "|                  F-SOCIETY INSTALLER  By ATHEX                        |"
+    echo "|_______________________________________________________________________|"
+    echo -e "${NC}"
+}
+
+# Function to print colored output
+print_message() {
+    echo -e "${2}${1}${NC}"
+}
+
+# Function to check if git is installed
+check_dependencies() {
+    if ! command -v git &> /dev/null; then
+        print_message "Error: git is not installed. Please install git first." "$RED"
+        exit 1
+    fi
+}
+
+# Function to validate special key
+validate_key() {
+    print_message "Please enter the special key to continue:" "$YELLOW"
+    read -r user_key
+    echo
+    
+    if [ "$user_key" != "$SPECIAL_KEY" ]; then
+        print_message "Invalid key! Access denied." "$RED"
+        exit 1
+    fi
+}
+
+# Function to clone F-SOCIETY repository
+clone_f_society_repository() {
+    print_message "Running F-SOCIETY....." "$YELLOW"
+    
+    if [ -d "$CLONE_DIR" ]; then
+        print_message "Directory $CLONE_DIR already exists. Removing..." "$YELLOW"
+        rm -rf "$CLONE_DIR"
+    fi
+    
+    if git clone "$F_SOCIETY_GITHUB_REPO" "$CLONE_DIR" 2>/dev/null; then
+        print_message "Operation successful!" "$GREEN"
+    else
+        print_message "Failed to clone repository!" "$RED"
+        exit 1
+    fi
+}
+
+# Function to find and run the f-society script
+run_f_society() {
+    print_message "Looking for main script: $MAIN_SCRIPT" "$YELLOW"
+    
+    cd "$CLONE_DIR" || exit 1
+    
+    # Check if f-society exists (with or without extension)
+    if [ -f "$MAIN_SCRIPT" ]; then
+        print_message "Found $MAIN_SCRIPT. Making it executable and running..." "$GREEN"
+        chmod +x "$MAIN_SCRIPT"
+        ./"$MAIN_SCRIPT"
+    elif [ -f "$MAIN_SCRIPT.sh" ]; then
+        print_message "Found $MAIN_SCRIPT.sh. Making it executable and running..." "$GREEN"
+        chmod +x "$MAIN_SCRIPT.sh"
+        ./"$MAIN_SCRIPT.sh"
+    elif [ -f "$MAIN_SCRIPT.py" ]; then
+        print_message "Found $MAIN_SCRIPT.py. Running with Python..." "$GREEN"
+        chmod +x "$MAIN_SCRIPT.py" 2>/dev/null || true
+        python3 "$MAIN_SCRIPT.py"
+    else
+        print_message "Error: $MAIN_SCRIPT not found in the repository!" "$RED"
+        print_message "Looking for any executable named 'f-society'..." "$YELLOW"
+        
+        # Search for any file starting with f-society
+        find . -name "f-society*" -type f | head -10 | while read -r file; do
+            print_message "Found: $file" "$YELLOW"
+        done
+        
+        # Try to find the main executable
+        print_message "Available files in the repository:" "$YELLOW"
+        ls -la
+        
+        # Look for any executable file
+        executable_files=$(find . -type f -executable ! -name ".*" 2>/dev/null | head -5)
+        if [ -n "$executable_files" ]; then
+            print_message "Executable files found:" "$GREEN"
+            echo "$executable_files"
+            print_message "Trying to run the first executable..." "$YELLOW"
+            first_exec=$(echo "$executable_files" | head -n1)
+            ./"$first_exec"
+        else
+            print_message "No executable files found. Please check the repository structure." "$RED"
+            exit 1
+        fi
+    fi
+}
+
+# F-SOCIETY main execution function
+run_f_society_installer() {
+    # Display banner
+    display_banner
+    
+    print_message "=== F-SOCIETY Automated Installer ===" "$GREEN"
+    
+    # Check dependencies
+    check_dependencies
+    
+    # Validate special key
+    validate_key
+    
+    # Clone repository
+    clone_f_society_repository
+    
+    # Run f-society specifically
+    run_f_society
+    
+    print_message "=== F-SOCIETY installation completed ===" "$GREEN"
+}
+
+# Check if blocked
+if [ -f "$BLOCK_FILE" ]; then
+    echo -e "${RED}"
+    echo "                         ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌"
+    echo "                          ....###.....######...######..########..######...######.....########..##........#######...######..##....##.########.########."
+    echo "                          ...##.##...##....##.##....##.##.......##....##.##....##....##.....##.##.......##.....##.##....##.##...##..##.......##.....##"
+    echo "                          ..##...##..##.......##.......##.......##.......##..........##.....##.##.......##.....##.##.......##..##...##.......##.....##"
+    echo "                          .##.....##.##.......##.......######....######...######.....########..##.......##.....##.##.......#####....######...##.....##"
+    echo "                         .#########.##.......##.......##.............##.......##....##.....##.##.......##.....##.##.......##..##...##.......##.....##"
+    echo "                         .##.....##.##....##.##....##.##.......##....##.##....##....##.....##.##.......##.....##.##....##.##...##..##.......##.....##"
+    echo "                         .##.....##..######...######..########..######...######.....########..########..#######...######..##....##.########.########."
+    echo "                         ❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌❌"
+    echo "                                            Contact administrator."
+    echo "                                            Contact To Buy Key +92-3490916663 ATHEX BLACK HAT"
+    echo "                                            Block reason: $(cat "$BLOCK_FILE" 2>/dev/null || echo "Unknown")"
+    exit 1
+fi
+
+# Check for brute force attempts from log
+recent_attempts=$(grep "$(whoami)" "$LOG_FILE" 2>/dev/null | wc -l)
+if [ "$recent_attempts" -gt 5 ]; then
+    echo "⚠️  Suspicious activity detected. Access temporarily locked."
+    block_user
+fi
+
+# Main authentication
+echo -e "${CYAN}"
+echo ""
+echo "       🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒"
+echo "        _____  ____________  _____  _____________    ______  __________________  ___"
+echo "       / __/ |/ / ___/ _ \ \/ / _ \/_  __/ __/ _ \  / __/\ \/ / __/_  __/ __/  |/  /"
+echo "      / _//    / /__/ , _/\  / ___/ / / / _// // / _\ \   \  /\ \  / / / _// /|_/ /"
+echo "     /___/_/|_/\___/_/|_| /_/_/    /_/ /___/____/ /___/   /_/___/ /_/ /___/_/  /_/"
+echo ""
+echo "      🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒🔒"
+echo "============================================================================="
+
+while [ "$ATTEMPTS" -lt "$MAX_ATTEMPTS" ]; do
+    echo -n "🔑 Enter password (Attempt $((ATTEMPTS + 1))/$MAX_ATTEMPTS): "
+    read -r -s user_input
+    echo
+    
+    if verify_password "$user_input"; then
+        echo -e "${GREEN}"
+        echo ""
+        echo "            ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅"
+        echo "            █████╗  ██████╗ ██████╗███████╗███████╗███████╗     ██████╗ ██████╗  █████╗ ███╗   ██╗████████╗███████╗██████╗"
+        echo "           ██╔══██╗██╔════╝██╔════╝██╔════╝██╔════╝██╔════╝    ██╔════╝ ██╔══██╗██╔══██╗████╗  ██║╚══██╔══╝██╔════╝██╔══██╗"
+        echo "           ███████║██║     ██║     █████╗  ███████╗███████╗    ██║  ███╗██████╔╝███████║██╔██╗ ██║   ██║   █████╗  ██║  ██║"
+        echo "           ██╔══██║██║     ██║     ██╔══╝  ╚════██║╚════██║    ██║   ██║██╔══██╗██╔══██║██║╚██╗██║   ██║   ██╔══╝  ██║  ██║"
+        echo "           ██║  ██║╚██████╗╚██████╗███████╗███████║███████║    ╚██████╔╝██║  ██║██║  ██║██║ ╚████║   ██║   ███████╗██████╔╝"
+        echo "           ╚═╝  ╚═╝ ╚═════╝ ╚═════╝╚══════╝╚══════╝╚══════╝     ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚═════╝"
+        echo "            ✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅✅"
+        echo ""
+        
+        log_attempt "SUCCESS"
+        
+        # Run the F-SOCIETY installer after successful authentication
+        run_f_society_installer
+        
+        # Clear sensitive data
+        unset user_input
+        exit 0
+        
+    else
+        echo "❌ Invalid password!"
+        ATTEMPTS=$((ATTEMPTS + 1))
+        log_attempt "FAILED"
+        
+        # Progressive delay
+        sleep $((ATTEMPTS * 2))
+    fi
+done
+
+block_user
